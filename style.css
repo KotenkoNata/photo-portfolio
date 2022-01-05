@@ -20,6 +20,7 @@ body{
     font-size: 18px;
     line-height: 36px;
     color: #FFFFFF;
+    background-color: #000;
 }
 
 *{
@@ -43,8 +44,9 @@ img{
     width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
-    background-color: #000;
 }
+
+
 
 .button{
     border: 0;
@@ -58,10 +60,13 @@ img{
 
 /*Header-styles*/
 
-.header-container{
+header{
     background: url('./assets/img/hero.jpeg') no-repeat top;
-    padding: 20px 0 20px 0;
+    background-size: cover;
+    padding: 20px 0;
+}
 
+.header-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,11 +99,17 @@ img{
     font-size: 20px;
     line-height: 50px;
 
+    margin-right: 31px;
 }
 
 .nav-item{
     margin-right: 30px;
 }
+
+.nav-item:nth-child(5n){
+    margin-right: 0;
+}
+
 
 .nav-link {
     line-height: 50px;
@@ -141,21 +152,31 @@ img{
 
 .hero{
     background: url('./assets/img/hero.jpeg') no-repeat center -90px;
+    background-size: cover;
     height: 820px;
-    padding-left: 80px;
-    margin-bottom: 100px;
+    margin: 0 auto 100px auto;
+    width: 1440px;
+}
+
+.additional-container{
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .hero-text-container{
     width: 500px;
+    padding-left: 60px;
+    padding-top: 160px;
 }
 
 h1{
-    font-family: Merriweather serif;
+    font-family: 'Merriweather', serif;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 60px;
-    line-height: 120px;
+    line-height: 2;
+
+    margin-bottom: 10px;
 }
 
 .hero p{
@@ -171,13 +192,11 @@ h1{
     background-color: #BDAE82;
     width: 220px;
     padding: 7px 0 8px 0;
-    border: 1px solid #BDAE82;
-    transition: color, background-color .3s;
+    transition: color .3s;
 }
 
 .hero-button:hover{
-    color: #BDAE82;
-    background-color: black;
+    color: #FFFFFF;
 }
 
 /*Section skills styles*/
@@ -189,7 +208,7 @@ h1{
 .section-title{
     position: relative;
 
-    font-family: Merriweather serif;
+    font-family: 'Merriweather', serif;
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
@@ -212,8 +231,8 @@ h1{
     position: absolute;
     top: 39px;
     left:0;
-    width: 35%;
-    border: 2px solid #BDAE82;
+    width: 39%;
+    border: 1px solid #BDAE82;
 
 }
 
@@ -222,8 +241,8 @@ h1{
     position: absolute;
     top: 39px;
     right:0;
-    width: 35%;
-    border: 2px solid #BDAE82;
+    width: 39%;
+    border: 1px solid #BDAE82;
 
 }
 
@@ -232,6 +251,8 @@ h1{
     justify-content: space-between;
     align-items: center;
     text-align: center;
+
+    padding-bottom: 10px;
 }
 
 .skills-list li{
@@ -248,18 +269,27 @@ h1{
     font-family: inherit;
     font-size: 20px;
     line-height: 40px;
+
     margin-bottom: 20px;
 }
 
 .skills-icon{
     fill: #BDAE82;
-    margin-bottom: 50px;
+    margin-bottom: 38px;
 }
 
 /*Section portfolio styles*/
 
 .portfolio{
     margin-bottom: 100px;
+}
+
+.portfolio .section-title:before{
+    width: 34%;
+}
+
+.portfolio .section-title:after{
+    width: 34%;
 }
 
 .portfolio-button-list{
@@ -273,6 +303,7 @@ h1{
 }
 
 .portfolio-button{
+    padding: 6px 0 5px 0;
     width: 220px;
     background-color: transparent;
     color: #BDAE82;
@@ -332,6 +363,7 @@ h1{
 .play-icon{
     position: absolute;
     content: "";
+    top: 287px;
     right: 0;
     left: 0;
     margin-right: auto;
@@ -353,7 +385,7 @@ h1{
 }
 
 .price-list li h3{
-    font-family: Merriweather serif;
+    font-family: 'Merriweather', serif;
     font-weight: bold;
     font-size: 28px;
     line-height: 56px;
@@ -378,7 +410,7 @@ h1{
 }
 
 .price-value{
-    font-family: Merriweather serif;
+    font-family: 'Merriweather', serif;
     font-weight: bold;
     font-size: 24px;
     line-height: 48px;
@@ -419,7 +451,7 @@ h1{
 
 /*Section contacts styles*/
 
-.contacts-container {
+.contacts{
     background-size: auto 700px;
     background: url('./assets/img/contactsImg2.jpeg') center center;
     height: 700px;
@@ -435,13 +467,13 @@ input{
     background-color: transparent;
     width: 100%;
     border: 1px solid #BDAE82;
-    height: 50px;
+    height: 48px;
 
     margin-bottom: 20px;
 }
 
 .contact-title{
-    font-family: Merriweather serif;
+    font-family: 'Merriweather', serif;
     font-style: normal;
     font-size: 40px;
     line-height: 80px;
@@ -456,13 +488,13 @@ input{
     height: 100px;
     background-color: transparent;
     border: 1px solid #BDAE82;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 ::placeholder{
     color: #BDAE82;
     padding: 5px 0 5px 20px;
-    font-family: Inter, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -481,6 +513,9 @@ input{
     align-items: center;
     align-content: baseline;
 
+    font-size: 20px;
+    line-height: 50px;
+
     padding: 50px 0;
 }
 
@@ -492,6 +527,11 @@ input{
     color: #FFFFFF;
 
     transition: color, fill .3s;
+}
+
+
+.footer-span{
+    margin-right: 20px;
 }
 
 .footer-social-list .footer-link{
