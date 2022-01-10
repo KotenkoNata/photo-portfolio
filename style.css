@@ -708,7 +708,7 @@ form{
     display: inline-block;
     margin: 0 auto;
     min-width: 450px;
-    text-align: right;
+    text-align: left;
 }
 
 input{
@@ -726,8 +726,6 @@ input{
     font-size: 40px;
     line-height: 80px;
     color: #BDAE82;
-
-    text-align: left;
 
     margin: 60px 0 40px 0;
 }
@@ -749,10 +747,6 @@ input{
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
-}
-
-.contact-form .price-button{
-    margin-right: 230px;
 }
 
 @media screen and (max-width: 768px){
