@@ -471,14 +471,19 @@ h1{
 
 .contacts{
     background-size: auto 700px;
-    background: url('./assets/img/contactsImg2.jpeg') center center;
+    background: url('./assets/img/contactsImg2.jpeg') no-repeat center center;
     height: 700px;
+}
+
+.contacts-container{
+    display: block;
+    text-align: left;
 }
 
 form{
     width: 450px;
-    float:right;
-    clear:right;
+
+
 }
 
 input{
