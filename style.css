@@ -471,18 +471,27 @@ h1{
 
 .contacts{
     background-size: auto 700px;
-    background: url('./assets/img/contactsImg2.jpeg') center center;
+    background: url('./assets/img/contactsImg2.jpeg') no-repeat center center;
     height: 700px;
 }
 
+.contacts-container{
+    display: block;
+    text-align: right;
+    width: 1400px;
+    margin: 0 auto;
+
+}
+
 form{
-    width: 450px;
-    float:right;
-    clear:right;
+    display: inline-block;
+    margin: 0 auto;
+    min-width: 450px;
+    text-align: left;
 }
 
 input{
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     border: 1px solid #BDAE82;
     height: 48px;
@@ -504,7 +513,7 @@ input{
     resize: none;
     width: 100%;
     height: 100px;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid #BDAE82;
     margin-bottom: 15px;
 }
