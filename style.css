@@ -1,23 +1,3 @@
-/*font-family: 'Inter', sans-serif;*/
-/*font-family: 'Merriweather', serif;*/
-/*font-family: 'Open Sans', sans-serif;*/
-
-/*:root {*/
-/*    --font1: 80px;*/
-/*    --padding: 75px;*/
-/*}*/
-/*@media (max-width: 1024px) {*/
-/*    :root {*/
-/*        --font1: 50px;*/
-/*        --padding: 60px;*/
-/*    }*/
-/*    @media (max-width: 796px) {*/
-/*        :root {*/
-/*            --font1: 40px;*/
-/*            --padding: 40px;*/
-/*        }*/
-/*    }*/
-
 html {
     scroll-behavior: smooth;
 }
@@ -161,7 +141,7 @@ img{
 /*Header-styles*/
 
 .background-container{
-    min-width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     background: url('./assets/img/hero.jpeg') no-repeat top;
     background-size: cover;
@@ -269,8 +249,7 @@ img{
     background: url('./assets/img/hero.jpeg') no-repeat center -90px;
     background-size: cover;
     height: 820px;
-    margin: 0 auto 100px auto;
-    min-width: 1440px;
+    max-width: 1440px;
 }
 
 .additional-container{
@@ -279,7 +258,7 @@ img{
 }
 
 .hero-text-container{
-    width: 500px;
+    max-width: 470px;
     padding-left: 60px;
     padding-top: 160px;
 }
@@ -398,6 +377,8 @@ h1{
     text-align: center;
 
     padding-bottom: 10px;
+
+    margin-top: 60px;
 }
 
 .skills-list li{
@@ -467,8 +448,10 @@ h1{
 /*Section portfolio styles*/
 
 .portfolio{
+    padding-top: 100px;
     margin-bottom: 100px;
 }
+
 
 .portfolio .section-title:before{
     width: 34%;
@@ -481,7 +464,7 @@ h1{
 .portfolio-button-list{
     display: flex;
     justify-content: center;
-    margin-bottom: 60px;
+    margin: 60px 0;
 }
 
 .portfolio-button-list li{
@@ -513,6 +496,14 @@ h1{
     width: calc((100% - 50) / 3);
     margin-right: 25px;
     margin-bottom: 25px;
+}
+
+.portfolio-example-list li:nth-child(3n){
+    margin-right: 0;
+}
+
+.portfolio-example-list li:nth-last-child(-n+3){
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 768px){
