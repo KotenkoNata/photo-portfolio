@@ -28,6 +28,8 @@
                         </a>
                     </div>
 
+
+
                     <div class="nav-language-container">
                         <nav class="nav">
                             <ul class="nav-list">
@@ -44,7 +46,25 @@
                             <span class="divider">/</span>
                             <button class="button-language button">ru</button>
                         </div>
+
+                        <div class="header-burger">
+                            <span></span>
+                        </div>
                     </div>
+                </div>
+
+
+                <div class="burger-menu">
+                    <nav>
+                        <ul>
+                            <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                            <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                            <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
+                            <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
+                            <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                        </ul>
+
+                    </nav>
                 </div>
             </div>
         </div>
@@ -57,7 +77,7 @@
                                         <div class="hero-text-container">
                                             <h1>Alexa  Rise</h1>
                                             <p>
-                                                Save sincere emotions, romantic feelings and <br> happy moments of life together with professional photographer Alexa Rise
+                                                Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise
                                             </p>
                                             <button class="button hero-button">Hire me</button>
                                         </div>
@@ -149,7 +169,11 @@
                     <h2 class="section-title">Video</h2>
                 </div>
                 <div class="video-player">
-                    <img src="assets/img/video-player2.jpeg" alt="Wedding scene">
+                    <picture>
+                        <source srcset="assets/img/video-player2.jpeg   1x, assets/img/video-player-desktop2.jpeg   2x" media="(min-width: 1400px)">
+                        <source srcset="assets/img/video-player-tablet.jpeg   1x, assets/img/video-player-tablet2.jpeg   2x" media="(min-width: 768px)">
+                        <img src="assets/img/video-player2.jpeg" alt="Wedding scene">
+                    </picture>
                     <button class="button video-play-button">
                         <svg class="play-icon" width="130px" height="130px">
                             <use href="./assets/img/symbol-defs.svg#icon-Play_hover1"></use>
@@ -228,9 +252,9 @@
         <div class="container">
             <div class="footer-flex-container">
 
-                <a class="footer-link" href="https://github.com/KotenkoNata" target="_blank"><span class="footer-span">&copy;</span> <span class="footer-span">2022</span> <span class=footer-span>github</span></a>
+                <a class="footer-link" href="https://github.com/KotenkoNata" target="_blank"><span class="footer-span">&copy;</span> <span class="footer-span tablet">2022</span> <span class=footer-span>github</span></a>
 
-                    <a class="footer-link" href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a>
+                <a class="footer-link" href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a>
 
                 <ul class="footer-social-list">
                     <li>
