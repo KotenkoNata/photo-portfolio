@@ -550,6 +550,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 60px;
 }
 
 .video-play-button{
@@ -596,6 +597,7 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 60px;
 }
 
 .price-list li h3{
@@ -691,12 +693,21 @@ h1{
 
 .contacts{
     background-size: auto 700px;
-    background: url('./assets/img/contactsImg2.jpeg') center center;
+    background: url('./assets/img/contactsImg2.jpeg') no-repeat center center;
     height: 700px;
 }
 
+.contacts-container{
+    display: block;
+    text-align: right;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
 form{
-    width: 450px;
+    display: inline-block;
+    margin: 0 auto;
+    min-width: 450px;
     text-align: right;
 }
 
@@ -715,6 +726,8 @@ input{
     font-size: 40px;
     line-height: 80px;
     color: #BDAE82;
+
+    text-align: left;
 
     margin: 60px 0 40px 0;
 }
@@ -736,6 +749,10 @@ input{
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
+}
+
+.contact-form .price-button{
+    margin-right: 230px;
 }
 
 @media screen and (max-width: 768px){
