@@ -2,6 +2,22 @@
 /*font-family: 'Merriweather', serif;*/
 /*font-family: 'Open Sans', sans-serif;*/
 
+/*:root {*/
+/*    --font1: 80px;*/
+/*    --padding: 75px;*/
+/*}*/
+/*@media (max-width: 1024px) {*/
+/*    :root {*/
+/*        --font1: 50px;*/
+/*        --padding: 60px;*/
+/*    }*/
+/*    @media (max-width: 796px) {*/
+/*        :root {*/
+/*            --font1: 40px;*/
+/*            --padding: 40px;*/
+/*        }*/
+/*    }*/
+
 html {
     scroll-behavior: smooth;
 }
@@ -60,7 +76,9 @@ img{
 
 /*Header-styles*/
 
-header{
+.background-container{
+    width: 1440px;
+    margin: 0 auto;
     background: url('./assets/img/hero.jpeg') no-repeat top;
     background-size: cover;
     padding: 20px 0;
