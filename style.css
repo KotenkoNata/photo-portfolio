@@ -232,17 +232,6 @@ img{
     margin: 0 8px;
 }
 
-@media screen and (max-width: 768px){
-    .background-container{
-        min-width: 768px;
-        background: url('./assets/img/bg-tablet 2.jpeg') no-repeat top;
-    }
-
-    .divider{
-        margin: 0 22px 0 11px;
-    }
-}
-
 /*Hero-styles*/
 
 .hero{
@@ -293,36 +282,6 @@ h1{
 
 .hero-button:hover{
     color: #FFFFFF;
-}
-
-@media screen and (max-width: 768px){
-
-    .hero{
-        min-width: 768px;
-        height: 500px;
-        background: url('./assets/img/bg-tablet 2.jpeg')no-repeat center -90px;
-        margin: 0 auto;
-    }
-
-    h1{
-        font-size: 32px;
-        font-weight: 400;
-        margin-bottom: 20px;
-    }
-
-    .hero p{
-        line-height: 24px;
-        margin-bottom: 60px;
-    }
-
-    .hero-text-container{
-        max-width: 400px;
-        padding-top: 78px;
-    }
-
-    .additional-container{
-        padding: 0;
-    }
 }
 
 /*Section skills styles*/
@@ -406,47 +365,6 @@ h1{
     margin-bottom: 38px;
 }
 
-@media screen and (max-width: 768px){
-
-    .skills{
-        margin-bottom: 93px;
-    }
-
-    .section-title{
-        font-size: 32px;
-        line-height: 40px;
-    }
-
-    .section-title-container{
-        width: 56%;
-        margin-bottom: 65px;
-    }
-
-    .section-title:before, .section-title:after{
-        top: 19px;
-        width: 31%;
-    }
-    .skills-list{
-        flex-wrap: wrap;
-    }
-
-    .skills-list li{
-        width: calc((100% - 44px) / 2);
-        margin-right: 44px;
-        margin-bottom: 74px;
-    }
-    .skills-list li:nth-child(2n){
-        margin-right: 0;
-    }
-    .skills-icon{
-        margin-bottom: 20px;
-    }
-
-    .skills-list li p{
-        line-height: 22px;
-    }
-}
-
 /*Section portfolio styles*/
 
 .portfolio{
@@ -500,47 +418,6 @@ h1{
     margin-bottom: 25px;
 }
 
-.portfolio-example-list li:nth-child(3n){
-    margin-right: 0;
-}
-
-.portfolio-example-list li:nth-last-child(-n+3){
-    margin-bottom: 0;
-}
-
-@media screen and (max-width: 768px){
-
-    .portfolio{
-        margin-bottom: 75px;
-    }
-
-    .portfolio .section-title:before, .portfolio .section-title:after{
-        width: 25%;
-    }
-
-    .portfolio .section-title-container{
-        margin-bottom: 70px;
-    }
-
-    .portfolio-button-list{
-        flex-wrap: wrap;
-        margin-bottom: 55px;
-    }
-
-    .portfolio-button-list li{
-        margin-right: 5px;
-        margin-bottom: 5px;
-    }
-
-    .portfolio-button-list li:nth-child(2n){
-        margin-right: 0;
-    }
-
-    .portfolio-example-list li{
-        margin-right: 0;
-    }
-}
-
 /*Section video styles*/
 
 .video{
@@ -576,17 +453,6 @@ h1{
     fill: #FFFFFF;
 }
 
-@media screen and (max-width: 768px){
-    .video .section-title-container{
-        margin-bottom: 70px;
-    }
-
-    .play-icon{
-        width: 64px;
-        height: 64px;
-        top: 177px;
-    }
-}
 
 /*Section price styles*/
 
@@ -667,41 +533,19 @@ h1{
     color: #BDAE82;
 }
 
-@media screen and (max-width: 768px){
-    .price{
-        margin-bottom: 80px;
-    }
-
-    .price .section-title-container{
-        margin-bottom: 72px;
-    }
-
-    .price-list {
-        flex-wrap: wrap;
-    }
-
-    .price-list li{
-        min-width: 420px;
-        margin-right: 0;
-        margin-bottom: 50px;
-    }
-
-    .price-list li:nth-child(3n){
-        margin-bottom: 0;
-    }
-}
-
 /*Section contacts styles*/
 
 .contacts{
     background-size: auto 700px;
     background: url('./assets/img/contactsImg2.jpeg') no-repeat center center;
     height: 700px;
+    margin: 0 auto;
 }
 
 .contacts-container{
     display: block;
     text-align: right;
+    width: 1440px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -749,41 +593,6 @@ input{
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
-}
-
-@media screen and (max-width: 768px){
-    .contacts{
-        background-size: auto 600px;
-        background: url('./assets/img/contacts-tablet2.jpeg') center center;
-        height: 600px;
-    }
-
-    .contacts-container{
-        display: block;
-        text-align: center;
-    }
-
-    form{
-        display: inline-block;
-        margin: 0 auto;
-        min-width: 450px;
-        text-align: center;
-
-    }
-
-    .contact-title{
-        font-size: 32px;
-        line-height: 64px;
-    }
-
-    .price-button{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #comments{
-        height: 98px;
-    }
 }
 
 /*Section footer styles*/
@@ -850,7 +659,58 @@ input{
     fill: #FFFFFF;
 }
 
-@media screen and (max-width: 768px){
+
+/*phone*//*от 440 и lj 320*/
+
+@media screen and (min-width: 320px) and (max-width: 440px){
+  body{
+      background-color: green;
+  }
+}
+
+@media screen and (max-width: 767px){
+
+    body{
+        background-color: red;
+    }
+    .container{
+        max-width: 768px;
+        padding: 0 60px;
+    }
+
+    .background-container{
+        min-width: 768px;
+    }
+
+    .header-burger{
+        display: block;
+    }
+
+    .nav{
+        display: none;
+    }
+
+}
+/*!*tablet*! от 1439 и до 768*/
+@media screen and (min-width: 768px) and (max-width: 1439px){
+
+    .nav{
+        display: none;
+    }
+
+    .container {
+        max-width: 768px;
+    }
+
+    .background-container{
+        max-width: 768px;
+        background: url('./assets/img/bg-tablet 2.jpeg') no-repeat top;
+        margin: 0 auto;
+    }
+
+    .divider{
+        margin: 0 22px 0 11px;
+    }
 
     footer{
         padding: 12px 0 0 0;
@@ -890,44 +750,178 @@ input{
         margin-left: 10px;
     }
 
+    .contacts{
+        background-size: auto 600px;
+        background: url('./assets/img/contacts-tablet2.jpeg') no-repeat center center;
+        height: 600px;
+        max-width: 768px;
+    }
 
+    .contacts-container{
+        display: block;
+        text-align: center;
+        max-width: 768px;
+    }
+
+    form{
+        display: inline-block;
+        margin: 0 auto;
+        min-width: 450px;
+        text-align: center;
+
+    }
+
+    .contact-title{
+        font-size: 32px;
+        line-height: 64px;
+    }
+
+    .price-button{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #comments{
+        height: 98px;
+    }
+
+    .price{
+        margin-bottom: 80px;
+    }
+
+    .price .section-title-container{
+        margin-bottom: 72px;
+    }
+
+    .price-list {
+        flex-wrap: wrap;
+    }
+
+    .price-list li{
+        min-width: 420px;
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .price-list li:nth-child(3n){
+        margin-bottom: 0;
+    }
+
+    .hero{
+        max-width: 768px;
+        height: 500px;
+        background: url('./assets/img/bg-tablet 2.jpeg')no-repeat center -90px;
+        margin: 0 auto;
+    }
+
+    h1{
+        font-size: 32px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .hero p{
+        line-height: 24px;
+        margin-bottom: 60px;
+    }
+
+    .hero-text-container{
+        max-width: 400px;
+        padding-top: 78px;
+    }
+
+    .additional-container{
+        padding: 0;
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .section-title{
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .section-title-container{
+        width: 56%;
+        margin-bottom: 65px;
+    }
+
+    .section-title:before, .section-title:after{
+        top: 19px;
+        width: 31%;
+    }
+    .skills-list{
+        flex-wrap: wrap;
+    }
+
+    .skills-list li{
+        width: calc((100% - 44px) / 2);
+        margin-right: 44px;
+        margin-bottom: 74px;
+    }
+    .skills-list li:nth-child(2n){
+        margin-right: 0;
+    }
+    .skills-icon{
+        margin-bottom: 20px;
+    }
+
+    .skills-list li p{
+        line-height: 22px;
+    }
+    .portfolio{
+        margin-bottom: 75px;
+    }
+
+    .portfolio .section-title:before, .portfolio .section-title:after{
+        width: 25%;
+    }
+
+    .portfolio .section-title-container{
+        margin-bottom: 70px;
+    }
+
+    .portfolio-button-list{
+        flex-wrap: wrap;
+        margin-bottom: 55px;
+    }
+
+    .portfolio-button-list li{
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .portfolio-button-list li:nth-child(2n){
+        margin-right: 0;
+    }
+
+    .portfolio-example-list li{
+        margin-bottom: 25px;
+        margin-right: 0;
+
+    }
+    .video .section-title-container{
+        margin-bottom: 70px;
+    }
+
+    .play-icon{
+        width: 64px;
+        height: 64px;
+        top: 177px;
+    }
 }
-
-/*Styles for Desktop*/
+/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
 
 @media screen and (min-width: 1440px){
-
     .header-burger{
         display: none;
     }
-}
 
+    .portfolio-example-list li:nth-child(3n){
+        margin-right: 0;
+    }
 
-
-@media screen and (min-width: 767px) and (max-width: 1439px){
-    .header-burger{
-        display: none;
+    .portfolio-example-list li:nth-last-child(-n+3){
+        margin-bottom: 0;
     }
 }
-
-/*Styles for tablet*/
-
-@media screen and (max-width: 768px){
-    .container{
-        max-width: 768px;
-        padding: 0 60px;
-    }
-
-    .background-container{
-        max-width: 768px;
-    }
-    .header-burger{
-        display: block;
-    }
-
-    .nav{
-        display: none;
-    }
-
-}
-
