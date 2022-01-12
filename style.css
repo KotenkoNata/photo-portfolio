@@ -561,7 +561,7 @@ h1{
     }
 
     .skills-list li{
-        min-width: 300px;
+        min-width: 280px;
         margin: 0 auto 30px auto;
     }
 }
@@ -661,8 +661,12 @@ h1{
         margin-bottom: 50px;
     }
 
+    .portfolio .section-title-container{
+        width: 65%;
+    }
+
     .portfolio .section-title:before, .portfolio .section-title:after{
-        width: 16%;
+        width: 8%;
     }
 
     .portfolio-button-list{
@@ -671,7 +675,7 @@ h1{
     }
 
     .portfolio-button-list li{
-        margin-right: 5px;
+        margin-right: 0;
         margin-bottom: 5px;
     }
 
