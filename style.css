@@ -136,6 +136,28 @@ img{
     margin-bottom: 16px;
 }
 
+@media screen and (max-width: 767px){
+    .burger-menu {
+        padding: 100px 0 0 80px;
+    }
+
+    .burger-menu li{
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    .burger-menu.active {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 440px){
+    .burger-menu.active {
+        transform: translateX(0);
+    }
+}
+
 
 
 /*Header-styles*/
@@ -148,14 +170,11 @@ img{
     padding: 20px 0;
 }
 
-
-
 .header-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 
 .logo-container{
     width: 50px;
@@ -176,13 +195,10 @@ img{
     margin-left: auto;
 }
 
-
 .nav-list {
     display: flex;
-
     font-size: 20px;
     line-height: 50px;
-
     margin-right: 31px;
 }
 
@@ -213,15 +229,17 @@ img{
 
 .button-language{
     background-color: transparent;
-
     font-weight: bold;
     line-height: 50px;
     color: #FFFFFF;
-
 }
 
 .button-language:hover{
     color: #bdae82;
+}
+
+.current{
+    color: #BDAE82;
 }
 
 .divider{
@@ -232,7 +250,7 @@ img{
     margin: 0 8px;
 }
 
-/*phone*//*от 440 и до 320*/
+/*phone*//*from  440 till 320*/
 
 @media screen and (min-width: 320px) and (max-width: 440px){
     .container{
@@ -252,7 +270,7 @@ img{
 
     .background-container{
         max-width: 480px;
-        background: url('./assets/img/bg-tablet 2.jpeg') no-repeat top;
+        background: url('assets/img/bg-tablet2.jpeg') no-repeat top;
 
     }
 
@@ -265,9 +283,8 @@ img{
     }
 
 }
-/*!*tablet*! от 1439 и до 768*/
+/*!*tablet*! from 1439 till 768*/
 @media screen and (min-width: 768px) and (max-width: 1439px){
-
     .nav{
         display: none;
     }
@@ -279,14 +296,14 @@ img{
 
     .background-container{
         max-width: 768px;
-        background: url('./assets/img/bg-tablet 2.jpeg') no-repeat top;
+        background: url('assets/img/bg-tablet2.jpeg') no-repeat top;
     }
 
     .divider{
         margin: 0 22px 0 11px;
     }
 }
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
+/*Desktop more than 1440px*/
 
 @media screen and (min-width: 1440px){
     .header-burger{
@@ -295,8 +312,6 @@ img{
 }
 
 /*Hero-styles*/
-
-
 
 .hero{
     background: url('./assets/img/hero.jpeg') no-repeat center -90px;
@@ -348,7 +363,7 @@ h1{
     color: #FFFFFF;
 }
 
-/*phone*//*от 440 и до 320*/
+/*phone*//*from 440 till 320*/
 
 @media screen and (min-width: 320px) and (max-width: 440px){
     .hero{
@@ -369,7 +384,7 @@ h1{
 @media screen and (max-width: 767px){
     .hero{
         max-width: 480px;
-        background: url('./assets/img/bg-tablet 2.jpeg')no-repeat center -90px;
+        background: url('assets/img/bg-tablet2.jpeg')no-repeat center -90px;
         height: 500px;
     }
 
@@ -393,12 +408,12 @@ h1{
         padding-top: 50px;
     }
 }
-/*!*tablet*! от 1439 и до 768*/
+/*!*tablet*! from 1439 till 768*/
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .hero{
         max-width: 768px;
         height: 500px;
-        background: url('./assets/img/bg-tablet 2.jpeg')no-repeat center -90px;
+        background: url('assets/img/bg-tablet2.jpeg')no-repeat center -89px;
         margin: 0 auto;
     }
 
@@ -423,12 +438,6 @@ h1{
         margin: 0 auto;
     }
 }
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
-@media screen and (min-width: 1440px){
-
-}
-
-
 /*Section skills styles*/
 
 .skills{
@@ -447,14 +456,11 @@ h1{
     color: #BDAE82;
 }
 
-
-
 .section-title-container{
     overflow-x: hidden;
     width: 50%;
     margin: 0 auto;
 }
-
 
 .section-title:before{
     content: "";
@@ -463,7 +469,6 @@ h1{
     left:0;
     width: 39%;
     border: 1px solid #BDAE82;
-
 }
 
 .section-title:after{
@@ -481,9 +486,7 @@ h1{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-
     padding-bottom: 10px;
-
     margin-top: 60px;
 }
 
@@ -496,12 +499,10 @@ h1{
     margin-right: 0;
 }
 
-
 .skills-list li h3{
     font-family: inherit;
     font-size: 20px;
     line-height: 40px;
-
     margin-bottom: 20px;
 }
 
@@ -510,12 +511,7 @@ h1{
     margin-bottom: 38px;
 }
 
-/*phone*//*от 440 и до 320*/
-
-
-
 @media screen and (max-width: 767px){
-
     .skills{
         padding: 50px 0 0 0;
     }
@@ -569,7 +565,7 @@ h1{
         margin: 0 auto 30px auto;
     }
 }
-/*!*tablet*! от 1439 и до 768*/
+/* from 1439 till 768*/
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .section-title{
         font-size: 32px;
@@ -604,11 +600,6 @@ h1{
     .skills-list li p{
         line-height: 22px;
     }
-}
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
-
-@media screen and (min-width: 1440px){
-
 }
 
 /*Section portfolio styles*/
@@ -664,12 +655,6 @@ h1{
     margin-bottom: 25px;
 }
 
-/*phone*//*от 440 и до 320*/
-
-@media screen and (min-width: 320px) and (max-width: 440px){
-
-}
-
 @media screen and (max-width: 767px){
     .portfolio{
         padding: 0;
@@ -699,7 +684,7 @@ h1{
 
     }
 }
-/*!*tablet*! от 1439 и до 768*/
+
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .portfolio{
         margin-bottom: 75px;
@@ -734,7 +719,6 @@ h1{
 
     }
 }
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
 
 @media screen and (min-width: 1440px){
     .portfolio-example-list li:nth-child(3n){
@@ -786,10 +770,6 @@ h1{
     fill: #FFFFFF;
 }
 
-/*phone*//*от 440 и до 320*/
-
-
-
 @media screen and (max-width: 767px){
     .video{
         margin-bottom: 50px;
@@ -820,7 +800,7 @@ h1{
         top: 40%;
     }
 }
-/*!*tablet*! от 1439 и до 768*/
+
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .video .section-title-container{
         margin-bottom: 70px;
@@ -845,11 +825,6 @@ h1{
         margin: 60px auto 0 auto;
     }
 }
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
-
-@media screen and (min-width: 1440px){
-}
-
 
 /*Section price styles*/
 
@@ -896,7 +871,6 @@ h1{
     margin-bottom: 20px;
 }
 
-
 .price-text{
     display: block;
 
@@ -925,10 +899,6 @@ h1{
     background-color: black;
     color: #BDAE82;
 }
-
-/*phone*//*от 440 и до 320*/
-
-
 
 @media screen and (max-width: 767px){
     .price{
@@ -960,7 +930,7 @@ h1{
         margin-bottom: 25px;
     }
 }
-/*!*tablet*! от 1439 и до 768*/
+
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .price{
         margin-bottom: 80px;
@@ -984,7 +954,6 @@ h1{
         margin-bottom: 0;
     }
 }
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
 
 @media screen and (min-width: 1440px){
     .price-list li:nth-child(3n){
@@ -1053,10 +1022,6 @@ input{
     line-height: 40px;
 }
 
-/*phone*//*от 440 и до 320*/
-
-
-
 @media screen and (max-width: 767px){
     .contacts{
         background-size: auto 600px;
@@ -1119,7 +1084,7 @@ input{
         margin: 0 auto;
     }
 }
-/*!*tablet*! от 1439 и до 768*/
+
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .contacts{
         background-size: auto 600px;
@@ -1155,7 +1120,6 @@ input{
         height: 98px;
     }
 }
-/*!*Desktop*! всё что шире 1440  и 1440 включительно*/
 
 @media screen and (min-width: 1440px){
 .contacts-container{
@@ -1191,7 +1155,6 @@ input{
     transition: color, fill .3s;
 }
 
-
 .footer-span{
     margin-right: 20px;
 }
@@ -1225,12 +1188,6 @@ input{
 
 .icon{
     fill: #FFFFFF;
-}
-
-/*phone*//*от 440 и до 320*/
-
-@media screen and (min-width: 320px) and (max-width: 440px){
-
 }
 
 @media screen and (max-width: 767px){
@@ -1273,7 +1230,7 @@ input{
     }
 
 }
-/*!*tablet*! от 1439 и до 768*/
+
 @media screen and (min-width: 768px) and (max-width: 1439px){
 
     footer{
