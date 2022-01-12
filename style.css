@@ -384,7 +384,7 @@ h1{
 @media screen and (max-width: 767px){
     .hero{
         max-width: 480px;
-        background: url('assets/img/bg-tablet2.jpeg')no-repeat center -90px;
+        background: url('assets/img/bg-tablet2.jpeg')no-repeat center -89px;
         height: 500px;
     }
 
