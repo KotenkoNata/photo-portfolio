@@ -236,11 +236,11 @@ img{
 
 @media screen and (min-width: 320px) and (max-width: 440px){
     .container{
-        min-width: 320px;
+        max-width: 320px;
     }
 
     .background-container{
-        min-width: 320px;
+        max-width: 320px;
     }
 
 }
@@ -274,6 +274,7 @@ img{
 
     .container {
         max-width: 768px;
+        padding: 0 60px;
     }
 
     .background-container{
@@ -353,6 +354,15 @@ h1{
     .hero{
         min-width: 320px;
     }
+    .additional-container{
+        max-width: 320px;
+    }
+
+    h1{
+        font-size: 30px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
 
 }
 
@@ -387,7 +397,7 @@ h1{
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .hero{
         max-width: 768px;
-        height: 450px;
+        height: 500px;
         background: url('./assets/img/bg-tablet 2.jpeg')no-repeat center -90px;
         margin: 0 auto;
     }
@@ -405,11 +415,10 @@ h1{
 
     .hero-text-container{
         max-width: 400px;
-        padding-top: 78px;
+        padding: 78px 0 0 40px;
     }
 
     .additional-container{
-        padding: 0;
         max-width: 768px;
         margin: 0 auto;
     }
@@ -503,9 +512,7 @@ h1{
 
 /*phone*//*от 440 и до 320*/
 
-@media screen and (min-width: 320px) and (max-width: 440px){
 
-}
 
 @media screen and (max-width: 767px){
 
@@ -541,6 +548,26 @@ h1{
         line-height: 22px;
     }
 
+}
+
+@media screen and (min-width: 320px) and (max-width: 440px){
+    .section-title{
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .section-title:before, .section-title:after{
+        top: 19px;
+        width: 12%;
+    }
+    .skills-list{
+        display: block;
+    }
+
+    .skills-list li{
+        min-width: 300px;
+        margin: 0 auto 30px auto;
+    }
 }
 /*!*tablet*! от 1439 и до 768*/
 @media screen and (min-width: 768px) and (max-width: 1439px){
@@ -676,6 +703,7 @@ h1{
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .portfolio{
         margin-bottom: 75px;
+        padding-top: 95px;
     }
 
     .portfolio .section-title:before, .portfolio .section-title:after{
@@ -725,11 +753,16 @@ h1{
 }
 
 .video-player{
+    background: url('./assets/img/video-player-desktop2.jpeg') no-repeat center center;
+    background-size: cover;
+    height: 820px;
+    max-width: 1440px;
+    margin: 60px auto 0 auto;
+
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
 }
 
 .video-play-button{
@@ -745,7 +778,7 @@ h1{
 .play-icon{
     position: absolute;
     content: "";
-    top: 287px;
+    top: 40%;
     right: 0;
     left: 0;
     margin-right: auto;
@@ -755,9 +788,7 @@ h1{
 
 /*phone*//*от 440 и до 320*/
 
-@media screen and (min-width: 320px) and (max-width: 440px){
 
-}
 
 @media screen and (max-width: 767px){
     .video{
@@ -771,20 +802,47 @@ h1{
     .play-icon{
         width: 64px;
         height: 64px;
-        top: 40%;
+        top: 42%;
     }
 
+    .video-player{
+        background: url('./assets/img/video-player-phone.jpeg') no-repeat center center;
+        height: 261px;
+        max-width: 480px;
+        margin: 50px auto 0 auto;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 440px){
+    .play-icon{
+        width: 50px;
+        height: 50px;
+        top: 40%;
+    }
 }
 /*!*tablet*! от 1439 и до 768*/
 @media screen and (min-width: 768px) and (max-width: 1439px){
     .video .section-title-container{
         margin-bottom: 70px;
+        width: 48%;
     }
 
     .play-icon{
         width: 64px;
         height: 64px;
-        top: 40%;
+        top: 42%;
+    }
+
+    .video .additional-container{
+        padding: 0;
+    }
+
+    .video-player{
+        background: url('./assets/img/video-player-tablet.jpeg') no-repeat center center;
+        background-size: cover;
+        height: 418px;
+        max-width: 768px;
+        margin: 60px auto 0 auto;
     }
 }
 /*!*Desktop*! всё что шире 1440  и 1440 включительно*/
@@ -822,10 +880,6 @@ h1{
     padding: 42px 0;
     margin-right: 25px;
     border: 1px solid #BDAE82;
-}
-
-.price-list li:nth-child(3n){
-    margin-right: 0;
 }
 
 .price-list li span:last-of-type{
@@ -874,9 +928,7 @@ h1{
 
 /*phone*//*от 440 и до 320*/
 
-@media screen and (min-width: 320px) and (max-width: 440px){
 
-}
 
 @media screen and (max-width: 767px){
     .price{
@@ -886,19 +938,27 @@ h1{
         margin-bottom: 50px;
     }
     .price-list {
-        flex-wrap: wrap;
+        display: block;
     }
 
     .price-list li{
-        min-width: 420px;
+        margin:0 auto 20px auto;
+        min-width: 300px;
+        text-align: center;
+    }
+
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 440px){
+    .price-list {
+        display: block;
+    }
+    .price-list li{
+        min-width: 280px;
         margin-right: 0;
         margin-bottom: 25px;
     }
-
-    .price-list li:nth-child(3n){
-        margin-bottom: 0;
-    }
-
 }
 /*!*tablet*! от 1439 и до 768*/
 @media screen and (min-width: 768px) and (max-width: 1439px){
@@ -907,7 +967,7 @@ h1{
     }
 
     .price .section-title-container{
-        margin-bottom: 72px;
+        margin-bottom: 70px;
     }
 
     .price-list {
@@ -927,16 +987,8 @@ h1{
 /*!*Desktop*! всё что шире 1440  и 1440 включительно*/
 
 @media screen and (min-width: 1440px){
-    .header-burger{
-        display: none;
-    }
-
-    .portfolio-example-list li:nth-child(3n){
+    .price-list li:nth-child(3n){
         margin-right: 0;
-    }
-
-    .portfolio-example-list li:nth-last-child(-n+3){
-        margin-bottom: 0;
     }
 }
 
@@ -952,7 +1004,6 @@ h1{
 .contacts-container{
     display: block;
     text-align: right;
-    width: 1440px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -1004,9 +1055,7 @@ input{
 
 /*phone*//*от 440 и до 320*/
 
-@media screen and (min-width: 320px) and (max-width: 440px){
 
-}
 
 @media screen and (max-width: 767px){
     .contacts{
@@ -1032,7 +1081,6 @@ input{
         margin: 0 auto;
         min-width: 400px;
         text-align: center;
-
     }
 
     .contact-title{
@@ -1047,6 +1095,28 @@ input{
 
     #comments{
         height: 98px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 440px){
+    .contacts{
+        background-size: auto 600px;
+        background: url('./assets/img/contacts-tablet2.jpeg') no-repeat top left;
+        height: 510px;
+        max-width: 320px;
+    }
+
+    form{
+        display: inline-block;
+        margin: 0 auto;
+        min-width: 280px;
+        text-align: center;
+    }
+    .contacts-container{
+        display: block;
+        text-align: center;
+        max-width: 280px;
+        margin: 0 auto;
     }
 }
 /*!*tablet*! от 1439 и до 768*/
@@ -1069,7 +1139,6 @@ input{
         margin: 0 auto;
         max-width: 450px;
         text-align: center;
-
     }
 
     .contact-title{
@@ -1089,6 +1158,9 @@ input{
 /*!*Desktop*! всё что шире 1440  и 1440 включительно*/
 
 @media screen and (min-width: 1440px){
+.contacts-container{
+    width: 1440px;
+}
 }
 
 /*Section footer styles*/
@@ -1211,7 +1283,7 @@ input{
     .footer-flex-container{
         display: block;
         text-align: center;
-        padding: 15px 0;
+        padding: 15px 0 0 0;
         font-size: 20px;
         line-height: 24px;
     }
