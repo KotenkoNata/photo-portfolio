@@ -473,6 +473,7 @@ h1{
     background-size: auto 700px;
     background: url('./assets/img/contactsImg2.jpeg') no-repeat center center;
     height: 700px;
+    width: 1440px;
 }
 
 .contacts-container{
