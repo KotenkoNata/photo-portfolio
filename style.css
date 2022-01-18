@@ -22,7 +22,6 @@ body{
 *{
     margin: 0;
     padding: 0;
-    border: 1px solid green;
 }
 
 ul{
@@ -225,7 +224,6 @@ img{
 
 .button-language{
     background-color: transparent;
-
     font-weight: bold;
     line-height: 50px;
     color: #FFFFFF;
@@ -256,8 +254,12 @@ img{
         background: url('assets/img/bg-tablet2.jpeg') no-repeat top;
     }
 
+    .button-language:last-of-type{
+        margin-right: 4px;
+    }
+
     .divider{
-        margin: 0 22px 0 11px;
+        margin: 0 22px 0 5px;
     }
 }
 
@@ -285,7 +287,7 @@ img{
 }
 
 .hero-text-container{
-    width: 500px;
+    max-width: 470px;
     padding-left: 60px;
     padding-top: 160px;
 }
@@ -367,14 +369,12 @@ h1{
     line-height: 80px;
     text-align: center;
     color: #BDAE82;
-
-    margin-bottom: 60px;
 }
 
 .section-title-container{
     overflow-x: hidden;
     width: 50%;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
 }
 
 
@@ -431,6 +431,10 @@ h1{
 }
 
 @media screen and (max-width: 768px){
+    .skills{
+        padding-top: 100px;
+        margin: 0;
+    }
     .section-title{
         font-size: 32px;
         line-height: 40px;
@@ -438,7 +442,6 @@ h1{
 
     .section-title-container{
         width: 56%;
-        margin-bottom: 65px;
     }
 
     .section-title:before, .section-title:after{
@@ -491,7 +494,8 @@ h1{
 }
 
 .portfolio-button{
-    padding: 6px 30px 5px 30px;
+    padding: 6px 69px 5px 69px;
+    min-width: 220px;
     background-color: transparent;
     color: #BDAE82;
     border: 2px solid #BDAE82;
@@ -514,14 +518,6 @@ h1{
     width: calc((100% - 50) / 3);
     margin-right: 25px;
     margin-bottom: 25px;
-}
-
-.portfolio-example-list li:nth-child(3n){
-    margin-right: 0;
-}
-
-.portfolio-example-list li:nth-last-child(-n+3){
-    margin-bottom: 0;
 }
 
 /*tablet from 768*/
@@ -578,6 +574,10 @@ h1{
     margin-bottom: 100px;
 }
 
+.video .additional-container{
+    padding: 0 20px;
+}
+
 .video-player{
     position: relative;
     display: flex;
@@ -586,9 +586,9 @@ h1{
 
     background: url('./assets/img/video-player-desktop2.jpeg') no-repeat center center;
     background-size: cover;
-    height: 820px;
+    height: 705px;
     max-width: 1440px;
-    margin: 60px auto 0 auto;
+    margin: 0 auto;
 }
 
 .video-play-button{
@@ -953,7 +953,7 @@ input{
     }
 
     .footer-span{
-        margin: 0;
+        margin: 8px;
     }
 
     .tablet{
