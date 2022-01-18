@@ -22,6 +22,7 @@ body{
 *{
     margin: 0;
     padding: 0;
+    border: 1px solid green;
 }
 
 ul{
@@ -37,7 +38,7 @@ img{
 }
 
 .container {
-    width: 1400px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -136,25 +137,14 @@ img{
     margin-bottom: 16px;
 }
 
+/*tablet from 768*/
 @media screen and (max-width: 768px){
     .nav{
         display: none;
     }
-    /*.burger-menu {*/
-    /*    padding: 100px 0 0 80px;*/
-    /*}*/
-
-    /*.burger-menu li{*/
-    /*    font-size: 32px;*/
-    /*    font-weight: 400;*/
-    /*    line-height: 1.5;*/
-    /*}*/
-
-    /*.burger-menu.active {*/
-    /*    transform: translateX(0);*/
-    /*}*/
 }
 
+/*Desktop*/
 @media screen and (min-width: 769px) {
     .header-burger{
         display: none;
@@ -165,7 +155,7 @@ img{
 /*Header-styles*/
 
 .background-container{
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     background: url('./assets/img/hero.jpeg') no-repeat top;
     background-size: cover;
@@ -254,6 +244,30 @@ img{
     margin: 0 8px;
 }
 
+/*tablet from 768*/
+@media screen and (max-width: 768px){
+    .container {
+        max-width: 768px;
+        padding: 0 60px;
+    }
+
+    .background-container{
+        max-width: 768px;
+        background: url('assets/img/bg-tablet2.jpeg') no-repeat top;
+    }
+
+    .divider{
+        margin: 0 22px 0 11px;
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 769px) {
+    .header-burger{
+        display: none;
+    }
+}
+
 /*Hero-styles*/
 
 .hero{
@@ -261,12 +275,13 @@ img{
     background-size: cover;
     height: 820px;
     margin: 0 auto 100px auto;
-    width: 1440px;
+    max-width: 1440px;
 }
 
 .additional-container{
     margin: 0 auto;
     padding: 0 20px;
+    max-width: 1440px;
 }
 
 .hero-text-container{
@@ -303,6 +318,37 @@ h1{
 
 .hero-button:hover{
     color: #FFFFFF;
+}
+
+/*tablet from 768*/
+@media screen and (max-width: 768px){
+    .hero{
+        max-width: 768px;
+        height: 500px;
+        background: url('assets/img/bg-tablet2.jpeg')no-repeat center -89px;
+        margin: 0 auto;
+    }
+
+    h1{
+        font-size: 32px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .hero p{
+        line-height: 24px;
+        margin-bottom: 60px;
+    }
+
+    .hero-text-container{
+        max-width: 400px;
+        padding: 78px 0 0 40px;
+    }
+
+    .additional-container{
+        max-width: 768px;
+        margin: 0 auto;
+    }
 }
 
 /*Section skills styles*/
@@ -384,6 +430,42 @@ h1{
     margin-bottom: 38px;
 }
 
+@media screen and (max-width: 768px){
+    .section-title{
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .section-title-container{
+        width: 56%;
+        margin-bottom: 65px;
+    }
+
+    .section-title:before, .section-title:after{
+        top: 19px;
+        width: 31%;
+    }
+    .skills-list{
+        flex-wrap: wrap;
+    }
+
+    .skills-list li{
+        width: calc((100% - 44px) / 2);
+        margin-right: 44px;
+        margin-bottom: 74px;
+    }
+    .skills-list li:nth-child(2n){
+        margin-right: 0;
+    }
+    .skills-icon{
+        margin-bottom: 20px;
+    }
+
+    .skills-list li p{
+        line-height: 22px;
+    }
+}
+
 /*Section portfolio styles*/
 
 .portfolio{
@@ -409,8 +491,7 @@ h1{
 }
 
 .portfolio-button{
-    padding: 6px 0 5px 0;
-    width: 220px;
+    padding: 6px 30px 5px 30px;
     background-color: transparent;
     color: #BDAE82;
     border: 2px solid #BDAE82;
@@ -443,6 +524,54 @@ h1{
     margin-bottom: 0;
 }
 
+/*tablet from 768*/
+@media screen and (max-width: 768px){
+    .portfolio{
+        margin-bottom: 75px;
+        padding-top: 95px;
+    }
+
+    .portfolio .section-title:before, .portfolio .section-title:after{
+        width: 25%;
+    }
+
+    .portfolio .section-title-container{
+        margin-bottom: 70px;
+    }
+
+    .portfolio-button-list{
+        flex-wrap: wrap;
+        margin-bottom: 55px;
+    }
+
+    .portfolio-button-list li{
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+    .portfolio-button-list li:nth-child(2n){
+        margin-right: 0;
+    }
+
+    .portfolio-example-list li{
+        margin-bottom: 25px;
+        margin-right: 0;
+
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 769px) {
+    .portfolio-example-list li:nth-child(3n){
+        margin-right: 0;
+    }
+
+    .portfolio-example-list li:nth-last-child(-n+3){
+        margin-bottom: 0;
+    }
+
+}
+
 /*Section video styles*/
 
 .video{
@@ -454,6 +583,12 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background: url('./assets/img/video-player-desktop2.jpeg') no-repeat center center;
+    background-size: cover;
+    height: 820px;
+    max-width: 1440px;
+    margin: 60px auto 0 auto;
 }
 
 .video-play-button{
@@ -475,6 +610,36 @@ h1{
     margin-right: auto;
     margin-left: auto;
     fill: #FFFFFF;
+}
+
+@media screen and (max-width: 768px){
+    .video .section-title-container{
+        margin-bottom: 70px;
+        width: 48%;
+    }
+
+    .play-icon{
+        width: 64px;
+        height: 64px;
+        top: 42%;
+    }
+
+    .video .additional-container{
+        padding: 0;
+    }
+
+    .video-player{
+        background: url('./assets/img/video-player-tablet1.jpeg') no-repeat center center;
+        height: 418px;
+        max-width: 768px;
+        margin: 60px auto 0 auto;
+    }
+}
+
+@media screen and (min-width: 769px){
+    .video-preview{
+        display: none;
+    }
 }
 
 /*Section price styles*/
@@ -555,21 +720,52 @@ h1{
     color: #BDAE82;
 }
 
+/*tablet from 768*/
+@media screen and (max-width: 768px){
+    .price{
+        margin-bottom: 80px;
+    }
+
+    .price .section-title-container{
+        margin-bottom: 70px;
+    }
+
+    .price-list {
+        flex-wrap: wrap;
+    }
+
+    .price-list li{
+        min-width: 420px;
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .price-list li:nth-child(3n){
+        margin-bottom: 0;
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 769px) {
+    .price-list li:nth-child(3n){
+        margin-right: 0;
+    }
+}
+
 /*Section contacts styles*/
 
 .contacts{
     background-size: auto 700px;
     background: url('./assets/img/contactsImg2.jpeg') no-repeat center center;
     height: 700px;
-    width: 1440px;
+    margin: 0 auto;
 }
 
 .contacts-container{
     display: block;
     text-align: right;
-    width: 1400px;
     margin: 0 auto;
-
+    max-width: 1400px;
 }
 
 form{
@@ -615,6 +811,50 @@ input{
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
+}
+
+/*tablet from 768*/
+@media screen and (max-width: 768px){
+    .contacts{
+        background-size: auto 600px;
+        background: url('./assets/img/contacts-tablet2.jpeg') no-repeat center center;
+        height: 600px;
+        max-width: 768px;
+    }
+
+    .contacts-container{
+        display: block;
+        text-align: center;
+        max-width: 768px;
+    }
+
+    form{
+        display: inline-block;
+        margin: 0 auto;
+        max-width: 450px;
+        text-align: center;
+    }
+
+    .contact-title{
+        font-size: 32px;
+        line-height: 64px;
+    }
+
+    .price-button{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #comments{
+        height: 98px;
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 769px) {
+    .contacts-container{
+        max-width: 1440px;
+    }
 }
 
 /*Section footer styles*/
@@ -679,6 +919,52 @@ input{
 
 .icon{
     fill: #FFFFFF;
+}
+
+/*tablet from 768*/
+@media screen and (max-width: 768px){
+    footer{
+        padding: 12px 0 0 0;
+    }
+
+    .footer-flex-container{
+        display: block;
+        text-align: center;
+        padding: 15px 0 0 0;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .footer-link{
+        display: block;
+        text-align: center;
+    }
+
+    .footer-link:first-of-type{
+        margin-bottom: 16px;
+    }
+
+    .footer-flex-container .footer-link:last-of-type{
+        margin-bottom: 20px;
+    }
+
+    .footer-social-list{
+        justify-content: center;
+    }
+
+    .footer-span{
+        margin: 0;
+    }
+
+    .tablet{
+        margin-right: 30px;
+        margin-left: 10px;
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 769px) {
+
 }
 
 
