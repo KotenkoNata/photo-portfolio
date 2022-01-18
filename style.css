@@ -19,7 +19,7 @@ body{
     background-color: #000;
 }
 
-*{  border: 1px solid green;
+*{
     margin: 0;
     padding: 0;
 }
@@ -284,6 +284,7 @@ img{
 @media screen and (max-width: 480px){
     .container{
         max-width: 480px;
+        padding: 0 20px;
     }
 
     .background-container{
@@ -849,10 +850,6 @@ h1{
     border: 1px solid #BDAE82;
 }
 
-.price-list li:nth-child(3n){
-    margin-right: 0;
-}
-
 .price-list li span:last-of-type{
     margin-bottom: 40px;
 }
@@ -938,8 +935,8 @@ h1{
     }
 
     .price-list li{
-        margin:20px 0;
-        min-width: 280px;
+        margin:20px auto;
+        min-width: 270px;
         text-align: center;
     }
 }
