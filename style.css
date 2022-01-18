@@ -34,6 +34,8 @@ a{
 
 img{
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
@@ -933,13 +935,11 @@ h1{
     .price-list {
         display: block;
         margin: 0 auto;
-
     }
 
     .price-list li{
-        width: 100%;
         margin:20px 0;
-        min-width: 300px;
+        min-width: 280px;
         text-align: center;
     }
 }
@@ -1018,7 +1018,7 @@ input{
         background-size: auto 600px;
         background: url('./assets/img/contacts-tablet2.jpeg') no-repeat top left;
         height: 510px;
-        max-width: 480px;
+        max-width: 320px;
     }
 
     .additional-container{
@@ -1028,14 +1028,14 @@ input{
     .contacts-container{
         display: block;
         text-align: center;
-        max-width: 480px;
+        min-width: 280px;
         margin: 0 auto;
     }
 
     form{
         display: inline-block;
         margin: 0 auto;
-        min-width: 400px;
+        min-width: 280px;
         text-align: center;
     }
 
