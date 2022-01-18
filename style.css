@@ -510,7 +510,8 @@ h1{
     }
 
     .section-title-container{
-        width: 60%;
+        width: 56%;
+        margin: 0 auto 64px auto;
     }
 
     .section-title:before, .section-title:after{
