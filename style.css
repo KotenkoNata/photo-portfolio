@@ -1,3 +1,15 @@
+.theme-dark {
+    --background-color: #000;
+    --text-color: #FFFFFF;
+    --hover-color: #BDAE82;
+}
+
+.theme-light{
+    --background-color: #FFFFFF;
+    --text-color: #000;
+    --hover-color: #BDAE82;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -15,8 +27,8 @@ body{
     font-weight: normal;
     font-size: 18px;
     line-height: 36px;
-    color: #FFFFFF;
-    background-color: #000;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 *{
@@ -38,6 +50,10 @@ img{
     height: auto;
 }
 
+.invisible{
+    display: none;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -57,8 +73,8 @@ img{
 }
 
 .activeBtn{
-    background-color: #BDAE82;
-    color: black;
+    background-color: var(--hover-color);
+    color: var(--background-color);
 }
 
 /*Burger-menu*/
@@ -78,7 +94,7 @@ img{
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color: var(--text-color);
     top: 24px;
     transition: all 0.3s ease 0s;
 }
@@ -93,7 +109,7 @@ img{
 
 .header-burger::before, .header-burger::after {
     content: '';
-    background-color: white;
+    background-color: var(--text-color);
     position: absolute;
     width: 100%;
     height: 3px;
@@ -123,7 +139,7 @@ img{
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000000;
+    background: var(--background-color);
     transform: translateX(100%);
     transition: transform 0.5s;
 
@@ -176,6 +192,18 @@ img{
 
 /*Header-styles*/
 
+.background-container.light-background{
+    background-image: url('./assets/img/bg-light2.jpeg');
+}
+
+.hero.light-background{
+    background-image: url('./assets/img/bg-light2.jpeg');
+}
+
+.contacts.light-background{
+    background-image: url('./assets/img/contacts-bg-light2.jpeg');
+}
+
 .background-container{
     max-width: 1440px;
     background: url('./assets/img/hero.jpeg') no-repeat center 0;
@@ -197,11 +225,11 @@ img{
 
 .logo-icon{
     transition: fill .3s;
-    fill: #FFFFFF;
+    fill: var(--text-color);
 }
 
 .logo-icon:hover{
-    fill: #bdae82;
+    fill: var(--hover-color);
 }
 
 .nav-language-container{
@@ -231,11 +259,11 @@ img{
 .nav-link {
     line-height: 50px;
     transition:color .3s;
-    color: #FFFFFF;
+    color: var(--text-color);
 }
 
 .nav-link:hover{
-    color: #bdae82;
+    color: var(--hover-color);
 }
 
 .language-list{
@@ -248,22 +276,40 @@ img{
     background-color: transparent;
     font-weight: bold;
     line-height: 50px;
-    color: #FFFFFF;
+    color: var(--text-color);
 
 }
 
 .button-language:hover{
-    color: #bdae82;
+    color: var(--hover-color);
 }
 
 .divider{
     font-weight: bold;
     font-size: 20px;
     line-height: 50px;
-    color: #FFFFFF;
+    color: var(--text-color);
     margin: 0 8px;
 }
 
+.header-theme-container{
+    height: 45px;
+    width: 45px;
+
+    margin-left: 35px;
+}
+
+.header-theme-button{
+    background-color: transparent;
+    border: none;
+}
+
+.light{
+    fill: var(--text-color);
+}
+.dark{
+    fill: var(--background-color);
+}
 /*tablet from 768*/
 @media screen and (max-width: 768px){
     .container {
@@ -354,15 +400,15 @@ h1{
 .hero-button{
     line-height: 40px;
     font-weight: normal;
-    color: black;
-    background-color: #BDAE82;
+    color: var(--background-color);
+    background-color: var(--hover-color);
     width: 220px;
     padding: 7px 0 8px 0;
     transition: color .3s;
 }
 
 .hero-button:hover{
-    color: #FFFFFF;
+    color: var(--text-color);
 }
 
 /*phone*/
@@ -440,7 +486,7 @@ h1{
     font-size: 40px;
     line-height: 80px;
     text-align: center;
-    color: #BDAE82;
+    color: var(--hover-color);
 }
 
 .section-title-container{
@@ -456,7 +502,7 @@ h1{
     top: 39px;
     left:0;
     width: 39%;
-    border: 1px solid #BDAE82;
+    border: 1px solid var(--hover-color);
 
 }
 
@@ -466,7 +512,7 @@ h1{
     top: 39px;
     right:0;
     width: 39%;
-    border: 1px solid #BDAE82;
+    border: 1px solid var(--hover-color);
 
 }
 
@@ -498,7 +544,7 @@ h1{
 }
 
 .skills-icon{
-    fill: #BDAE82;
+    fill: var(--hover-color);
     margin-bottom: 38px;
 }
 
@@ -615,16 +661,16 @@ h1{
     padding: 6px 20px 5px 20px;
     min-width: 220px;
     background-color: transparent;
-    color: #BDAE82;
-    border: 2px solid #BDAE82;
+    color: var(--hover-color);
+    border: 2px solid var(--hover-color);
     line-height: 40px;
     transition: background-color, color .3s;
 }
 
 
 .portfolio-button:hover{
-    background-color: #BDAE82;
-    color: black;
+    background-color: var(--hover-color);
+    color: var(--background-color);
 }
 
 .portfolio-example-list{
@@ -757,7 +803,7 @@ h1{
 }
 
 .video-play-button .play-icon:hover{
-    fill: #BDAE82;
+    fill: var(--hover-color);
 }
 
 
@@ -769,7 +815,7 @@ h1{
     left: 0;
     margin-right: auto;
     margin-left: auto;
-    fill: #FFFFFF;
+    fill: var(--text-color);
 }
 
 /*phone*/
@@ -844,7 +890,7 @@ h1{
     font-weight: bold;
     font-size: 28px;
     line-height: 56px;
-    color: #FFFFFF;
+    color: var(--text-color);
 
     margin-bottom: 20px;
 }
@@ -853,7 +899,7 @@ h1{
     width: calc((100% - 50px) / 3);
     padding: 42px 0;
     margin-right: 25px;
-    border: 1px solid #BDAE82;
+    border: 1px solid var(--hover-color);
 }
 
 .price-list li span:last-of-type{
@@ -865,7 +911,7 @@ h1{
     font-weight: bold;
     font-size: 24px;
     line-height: 48px;
-    color: #BDAE82;
+    color: var(--hover-color);
 
     margin-bottom: 20px;
 }
@@ -878,11 +924,11 @@ h1{
     font-weight: normal;
     font-size: 18px;
     line-height: 36px;
-    color: #FFFFFF;
+    color: var(--text-color);
 }
 
 .price-button{
-    background-color: #BDAE82;
+    background-color: var(--hover-color);
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -890,14 +936,14 @@ h1{
     line-height: 40px;
     width: 220px;
     padding: 7px 38px 6px 38px;
-    border: 1px solid #BDAE82;
+    border: 1px solid var(--hover-color);
 
     transition: background-color, color .3s;
 }
 
 .price-button:hover{
-    background-color: black;
-    color: #BDAE82;
+    background-color: var(--background-color);
+    color: var(--hover-color);
 }
 
 
@@ -980,7 +1026,7 @@ form{
 input{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
-    border: 1px solid #BDAE82;
+    border: 1px solid var(--hover-color);
     height: 48px;
 
     margin-bottom: 20px;
@@ -991,7 +1037,7 @@ input{
     font-style: normal;
     font-size: 40px;
     line-height: 80px;
-    color: #BDAE82;
+    color: var(--hover-color);
 
     margin: 60px 0 40px 0;
 }
@@ -1001,12 +1047,12 @@ input{
     width: 100%;
     height: 100px;
     background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid #BDAE82;
+    border: 1px solid var(--hover-color);
     margin-bottom: 15px;
 }
 
 ::placeholder{
-    color: #BDAE82;
+    color: var(--hover-color);
     padding: 5px 0 5px 20px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -1124,7 +1170,7 @@ input{
     align-items: center;
     justify-content: center;
 
-    color: #FFFFFF;
+    color: var(--text-color);
 
     transition: color, fill .3s;
 }
@@ -1139,11 +1185,11 @@ input{
 }
 
 .footer-link:hover{
-    color: #BDAE82;
+    color: var(--hover-color);
 }
 
 .icon:hover{
-    fill: #BDAE82;
+    fill: var(--hover-color);
 }
 
 .footer-social-list{
@@ -1162,7 +1208,7 @@ input{
 }
 
 .icon{
-    fill: #FFFFFF;
+    fill: var(--text-color);
 }
 /*phone*/
 @media screen and (max-width: 480px){

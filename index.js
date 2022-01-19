@@ -40,17 +40,16 @@ portfolioBtns.addEventListener('click', changeImage);
 
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
-function preloadSummerImages() {
+function preloadImages() {
   seasons.forEach((element) => {
     for (let i = 1; i <= 6; i++) {
       const img = new Image();
       img.src = `./assets/img/${element}/${i}.jpg`;
     }
   })
-
 }
 
-preloadSummerImages();
+preloadImages();
 
 //Подсветка активной кнопки
 
@@ -69,7 +68,7 @@ allButtons.forEach(el => {
 
 })
 
-//Подготовка файлов с переводом
+//Translate page
 
 const languageButtons = document.querySelectorAll('[data-language]');
 
@@ -85,7 +84,48 @@ languageButtons.forEach(el => {
   el.addEventListener('click',getTranslate)
 })
 
+//Change theme of the page
+
+const pageElements = [ "hero", "background-container", "contacts" ]
+
+const themeBtn = document.querySelectorAll('.header-theme-button');
+
+const refs = {
+  lightBtn: document.querySelector('[data-color="light"]'),
+  darkBtn: document.querySelector('[data-color="dark"]'),
+};
+
+console.log(refs.lightBtn, refs.darkBtn)
+
+refs.lightBtn.addEventListener('click', function (event) {
+  refs.lightBtn.classList.add('invisible');
+  document.body.classList.add('theme-light')
+
+  pageElements.forEach((element) => {
+    const a = document.querySelector(`.${element}`);
+    a.classList.add('light-background');
+  })
+
+  document.body.classList.toggle('theme-dark')
+  refs.darkBtn.classList.toggle('invisible');
+})
+
+refs.darkBtn.addEventListener('click', function (event) {
+  refs.darkBtn.classList.add('invisible');
+  document.body.classList.add('theme-dark');
+
+  pageElements.forEach((element) => {
+    const a = document.querySelector(`.${element}`);
+    a.classList.remove('light-background');
+  })
+
+  document.body.classList.toggle('theme-light')
+  refs.lightBtn.classList.toggle('invisible');
+})
 
 
 
-console.log(`Score: 75 / 75;\n 1. Вёрстка соответствует макету. Ширина экрана 768px +48/48;\n 2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки +15/15;\n 3. На ширине экрана 768рх и меньше реализовано адаптивное меню +22/22;`)
+
+
+
+
