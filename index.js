@@ -1,5 +1,8 @@
 import { i18Obj } from './translate.js';
 
+let lang = 'en';
+let theme;
+
 (() => {
   const refs = {
     openModalBtn: document.querySelector(".header-burger"),
@@ -74,6 +77,7 @@ const languageButtons = document.querySelectorAll('[data-language]');
 
 function getTranslate(event){
     let language = event.target.dataset.language;
+    lang = language;
     const allElements = document.querySelectorAll('[data-i18]');
     allElements.forEach(element => {
       element.textContent = i18Obj[language][element.dataset.i18];
@@ -86,42 +90,85 @@ languageButtons.forEach(el => {
 
 //Change theme of the page
 
-const pageElements = [ "hero", "background-container", "contacts" ]
-
-const themeBtn = document.querySelectorAll('.header-theme-button');
+const pageElements = [ "hero", "background-container", "contacts", "hero-button", "section-title", "portfolio-title","portfolio-button", "portfolioBtn","portfolioBtn1","portfolioBtn2", "video-title", "price-title","contact-title","contact-input","contact-tel","contact-text", "contactBtn"]
 
 const refs = {
   lightBtn: document.querySelector('[data-color="light"]'),
   darkBtn: document.querySelector('[data-color="dark"]'),
 };
 
-console.log(refs.lightBtn, refs.darkBtn)
+const valueOfLocalStorage = localStorage.getItem('theme');
 
 refs.lightBtn.addEventListener('click', function (event) {
-  refs.lightBtn.classList.add('invisible');
-  document.body.classList.add('theme-light')
+  // if (valueOfLocalStorage === "light") {
+    theme = 'light';
+    localStorage.setItem('theme', theme);
+    refs.lightBtn.classList.add('invisible');
+    document.body.classList.add('theme-light')
 
-  pageElements.forEach((element) => {
-    const a = document.querySelector(`.${element}`);
-    a.classList.add('light-background');
-  })
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.add('light-background');
+    })
 
-  document.body.classList.toggle('theme-dark')
-  refs.darkBtn.classList.toggle('invisible');
+    refs.darkBtn.classList.toggle('invisible');
+  // }
 })
+
+
+
 
 refs.darkBtn.addEventListener('click', function (event) {
-  refs.darkBtn.classList.add('invisible');
-  document.body.classList.add('theme-dark');
+  // if (valueOfLocalStorage === "dark") {
+    theme = 'dark';
+    localStorage.setItem('theme', theme);
+    refs.darkBtn.classList.add('invisible');
 
-  pageElements.forEach((element) => {
-    const a = document.querySelector(`.${element}`);
-    a.classList.remove('light-background');
-  })
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.remove('light-background');
+    })
 
-  document.body.classList.toggle('theme-light')
-  refs.lightBtn.classList.toggle('invisible');
+    document.body.classList.toggle('theme-light')
+    refs.lightBtn.classList.toggle('invisible');
+  // }
 })
+
+// function changeTheme(event) {
+//   console.log(localStorage.getItem('Theme'))
+//   if (localStorage.getItem('Theme') === 'dark') {
+//     console.log('dark')
+//     document.body.classList.remove('theme-dark');
+//     document.body.classList.add('theme-light');
+//     localStorage.setItem('Theme', 'light');
+//   } else {
+//     console.log('light')
+//     document.body.classList.remove('theme-light');
+//     document.body.classList.add('theme-dark');
+//     localStorage.setItem('Theme', 'dark');
+//   }
+// }
+
+//Дополнительный функционал: данные хранятся в local storage
+
+// function setLocalStorage() {
+//   localStorage.setItem('lang', lang);
+//   localStorage.setItem('theme', theme);
+// }
+// window.addEventListener('beforeunload', setLocalStorage)
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
+  }
+  if(localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    getTranslate(theme);
+  }
+}
+window.addEventListener('load', getLocalStorage)
+window.addEventListener('load', getLocalStorage)
 
 
 
