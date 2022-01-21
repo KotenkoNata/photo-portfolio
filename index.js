@@ -58,17 +58,18 @@ preloadImages();
 
 const allButtons = document.querySelectorAll('.button');
 
-function changeClassActive(className) {
-  return function (event) {
-    const element = event.target
-    element.classList.toggle(className);
-  }
+function changeClassActive(event){
+  let current = event.target;
+  allButtons.forEach(el => {
+    if(el.classList.contains("activeBtn")){
+      el.classList.remove("activeBtn")
+    }
+  })
+  current.classList.add("activeBtn")
 }
 
 allButtons.forEach(el => {
-  el.classList.remove('activeBtn');
-  el.addEventListener('click', changeClassActive("activeBtn"))
-
+  el.addEventListener('click', changeClassActive)
 })
 
 //Translate page
@@ -90,16 +91,14 @@ languageButtons.forEach(el => {
 
 //Change theme of the page
 
-const pageElements = [ "hero", "background-container", "contacts", "hero-button", "section-title", "portfolio-title","portfolio-button", "portfolioBtn","portfolioBtn1","portfolioBtn2", "video-title", "price-title","contact-title","contact-input","contact-tel","contact-text", "contactBtn"]
+const pageElements = [ "hero", "background-container","button-language","btn-language", "contacts", "hero-button", "section-title", "portfolio-title","portfolio-button", "portfolioBtn","portfolioBtn1","portfolioBtn2", "video-title", "price-title","price-button","priceBtn","priceBtn1","contact-title","contact-input","contact-tel","contact-text", "contactBtn"]
 
 const refs = {
   lightBtn: document.querySelector('[data-color="light"]'),
   darkBtn: document.querySelector('[data-color="dark"]'),
 };
 
-const valueOfLocalStorage = localStorage.getItem('theme');
-
-refs.lightBtn.addEventListener('click', function (event) {
+refs.lightBtn.addEventListener('click', function () {
   // if (valueOfLocalStorage === "light") {
     theme = 'light';
     localStorage.setItem('theme', theme);
@@ -118,7 +117,7 @@ refs.lightBtn.addEventListener('click', function (event) {
 
 
 
-refs.darkBtn.addEventListener('click', function (event) {
+refs.darkBtn.addEventListener('click', function () {
   // if (valueOfLocalStorage === "dark") {
     theme = 'dark';
     localStorage.setItem('theme', theme);

@@ -68,13 +68,19 @@ img{
     font-family: inherit;
     font-size: 20px;
     text-align: center;
-
+    transition: 0.3ms;
     cursor: pointer;
 }
 
 .activeBtn{
     background-color: var(--hover-color);
     color: var(--background-color);
+    transition: 0.3ms;
+    cursor: pointer;
+}
+
+.activeBtn:hover{
+    transition: color, background-color;
 }
 
 /*Burger-menu*/
@@ -97,6 +103,21 @@ img{
     background-color: var(--text-color);
     top: 24px;
     transition: all 0.3s ease 0s;
+}
+
+.header-burger span:hover{
+    background-color: #BDAE82;
+    cursor: pointer;
+}
+
+.header-burger:hover::before{
+    background-color: #BDAE82;
+    cursor: pointer;
+}
+
+.header-burger:hover::after{
+    background-color: #BDAE82;
+    cursor: pointer;
 }
 
 .header-burger::before{
@@ -280,8 +301,12 @@ img{
 
 }
 
-.button-language:hover{
+.button-language.activeBtn{
     color: var(--hover-color);
+}
+
+.button-language.activeBtn.light-background{
+    color: var(--background-color);
 }
 
 .divider{
@@ -304,11 +329,24 @@ img{
     border: none;
 }
 
+
 .light{
     fill: var(--text-color);
+    transition: 0.3ms;
 }
+
+.light:hover{
+    transition: fill;
+    fill: #BDAE82;
+}
+
 .dark{
     fill: var(--text-color);
+}
+
+.dark:hover{
+    transition: fill;
+    fill: #BDAE82;
 }
 /*tablet from 768*/
 @media screen and (max-width: 768px){
@@ -416,11 +454,10 @@ h1{
 .hero-button{
     line-height: 40px;
     font-weight: normal;
-    color: var(--text-color);
+    color: black;
     background-color: var(--hover-color);
     width: 220px;
     padding: 7px 0 8px 0;
-    transition: color .3s;
 }
 
 .hero-button.light-background{
@@ -428,10 +465,14 @@ h1{
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.hero-button.light-background:hover{
+    color: #BDAE82;
+    background-color: black;
+}
+
 
 .hero-button:hover{
     color: var(--text-color);
-
 }
 
 /*phone*/
@@ -687,11 +728,15 @@ h1{
     color: var(--text-color);
 }
 
-.portfolio-button.light-background:hover{
+.portfolio-button.activeBtn.light-background{
     background-color: var(--text-color);
     color: var(--hover-color);
 }
 
+.portfolioBtn.activeBtn.light-background{
+    background-color: var(--text-color);
+    color: var(--hover-color);
+}
 .portfolioBtn.light-background{
     background-color: var(--hover-color);
     color: var(--text-color);
@@ -701,9 +746,19 @@ h1{
     background-color: var(--hover-color);
     color: var(--text-color);
 }
+
+.portfolioBtn1.activeBtn.light-background{
+    background-color: var(--text-color);
+    color: var(--hover-color);
+}
 .portfolioBtn2.light-background{
     background-color: var(--hover-color);
     color: var(--text-color);
+}
+
+.portfolioBtn2.activeBtn.light-background{
+    background-color: var(--text-color);
+    color: var(--hover-color);
 }
 
 .portfolio-button-list li{
@@ -726,7 +781,7 @@ h1{
 }
 
 
-.portfolio-button:hover{
+.portfolio-button.activeBtn{
     background-color: var(--hover-color);
     color: var(--background-color);
 }
@@ -1004,6 +1059,23 @@ h1{
     color: var(--hover-color);
 }
 
+.price-button.light-background:hover{
+    background-color: black;
+    color: #BDAE82;
+}
+
+.priceBtn.light-background:hover{
+    background-color: black;
+    color: #BDAE82;
+}
+
+.priceBtn1.light-background:hover{
+    background-color: black;
+    color: #BDAE82;
+}
+
+
+
 
 
 /*tablet from 768*/
@@ -1145,6 +1217,12 @@ input{
 .contactBtn.light-background{
     background-color: var(--background-color);
 }
+
+.contactBtn.light-background:hover{
+    background-color: black;
+    color: #BDAE82;
+}
+
 
 /*phone*/
 @media screen and (max-width: 480px){
