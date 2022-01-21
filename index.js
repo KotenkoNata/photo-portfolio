@@ -79,6 +79,7 @@ const languageButtons = document.querySelectorAll('[data-language]');
 function getTranslate(event){
     let language = event.target.dataset.language;
     lang = language;
+    localStorage.setItem('lang', lang);
     const allElements = document.querySelectorAll('[data-i18]');
     allElements.forEach(element => {
       element.textContent = i18Obj[language][element.dataset.i18];
@@ -99,7 +100,6 @@ const refs = {
 };
 
 refs.lightBtn.addEventListener('click', function () {
-  // if (valueOfLocalStorage === "light") {
     theme = 'light';
     localStorage.setItem('theme', theme);
     refs.lightBtn.classList.add('invisible');
@@ -110,15 +110,10 @@ refs.lightBtn.addEventListener('click', function () {
       a.classList.add('light-background');
     })
 
-    refs.darkBtn.classList.toggle('invisible');
-  // }
+    refs.darkBtn.classList.remove('invisible');
 })
 
-
-
-
 refs.darkBtn.addEventListener('click', function () {
-  // if (valueOfLocalStorage === "dark") {
     theme = 'dark';
     localStorage.setItem('theme', theme);
     refs.darkBtn.classList.add('invisible');
@@ -128,45 +123,59 @@ refs.darkBtn.addEventListener('click', function () {
       a.classList.remove('light-background');
     })
 
-    document.body.classList.toggle('theme-light')
-    refs.lightBtn.classList.toggle('invisible');
-  // }
+    document.body.classList.remove('theme-light')
+    refs.lightBtn.classList.remove('invisible');
 })
 
-// function changeTheme(event) {
-//   console.log(localStorage.getItem('Theme'))
-//   if (localStorage.getItem('Theme') === 'dark') {
-//     console.log('dark')
-//     document.body.classList.remove('theme-dark');
-//     document.body.classList.add('theme-light');
-//     localStorage.setItem('Theme', 'light');
-//   } else {
-//     console.log('light')
-//     document.body.classList.remove('theme-light');
-//     document.body.classList.add('theme-dark');
-//     localStorage.setItem('Theme', 'dark');
-//   }
-// }
+function changeTheme(theme) {
+  if (theme === 'light') {
+    refs.lightBtn.classList.add('invisible');
+    document.body.classList.add('theme-light')
+
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.add('light-background');
+    })
+
+    refs.darkBtn.classList.remove('invisible');
+  }else{
+    refs.darkBtn.classList.add('invisible');
+
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.remove('light-background');
+    })
+
+    document.body.classList.remove('theme-light')
+    refs.lightBtn.classList.remove('invisible');
+  }
+}
+
+function changeLanguage(){
+  if(localStorage.getItem('lang') === "ru"){
+    const allElements = document.querySelectorAll('[data-i18]');
+    allElements.forEach(element => {
+      element.textContent = i18Obj.ru[element.dataset.i18];
+    })} else{
+    const allElements = document.querySelectorAll('[data-i18]');
+    allElements.forEach(element => {
+      element.textContent = i18Obj.en[element.dataset.i18];
+    })
+  }
+}
 
 //Дополнительный функционал: данные хранятся в local storage
-
-// function setLocalStorage() {
-//   localStorage.setItem('lang', lang);
-//   localStorage.setItem('theme', theme);
-// }
-// window.addEventListener('beforeunload', setLocalStorage)
 
 function getLocalStorage() {
   if(localStorage.getItem('lang')) {
     const lang = localStorage.getItem('lang');
-    getTranslate(lang);
+    changeLanguage(lang);
   }
   if(localStorage.getItem('theme')) {
     const theme = localStorage.getItem('theme');
-    getTranslate(theme);
+    changeTheme(theme);
   }
 }
-window.addEventListener('load', getLocalStorage)
 window.addEventListener('load', getLocalStorage)
 
 
