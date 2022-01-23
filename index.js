@@ -180,23 +180,54 @@ window.addEventListener('load', getLocalStorage)
 
 //
 
-const buttonRipple = document.querySelector('.ripple');
+//
 
-console.log(buttonRipple)
+// const buttonsWithRipple = document.querySelector('.ripple')
 
-buttonRipple.addEventListener('click', function (e) {
-  const x = e.clientX
-  const y = e.clientY
+// buttonsWithRipple.addEventListener('click', function (e) {
+//   const x = e.clientX
+//   const y = e.clientY
+//
+//   const buttonTop = e.target.offsetTop
+//   const buttonLeft = e.target.offsetLeft
+//
+//   const xInside = x - buttonLeft
+//   const yInside = y - buttonTop
+//
+//   const circle = document.createElement('span')
+//   circle.classList.add('circle')
+//   circle.style.top = yInside + 'px'
+//   circle.style.left = xInside + 'px'
+//
+//   console.log(this.appendChild(circle))
+//
+//   this.appendChild(circle)
+//
+//   setTimeout(() => circle.remove(), 500)
+// })
+
+
+const buttonsWithRipple = document.querySelectorAll(".ripple");
+
+console.log(buttonsWithRipple)
+
+buttonsWithRipple.forEach(item => {
+  item.addEventListener('click', changeBtnBehavior)
+})
+
+function changeBtnBehavior (e) {
+
+  const x = e.pageX;
+  const y = e.pageY;
 
   const buttonTop = e.target.offsetTop
   const buttonLeft = e.target.offsetLeft
 
-
   const xInside = x - buttonLeft
   const yInside = y - buttonTop
 
-
   const circle = document.createElement('span')
+
   circle.classList.add('circle')
   circle.style.top = yInside + 'px'
   circle.style.left = xInside + 'px'
@@ -204,11 +235,7 @@ buttonRipple.addEventListener('click', function (e) {
   this.appendChild(circle)
 
   setTimeout(() => circle.remove(), 500)
-})
-
-
-
-
+}
 
 
 
