@@ -178,34 +178,7 @@ function getLocalStorage() {
 }
 window.addEventListener('load', getLocalStorage)
 
-//
-
-//
-
-// const buttonsWithRipple = document.querySelector('.ripple')
-
-// buttonsWithRipple.addEventListener('click', function (e) {
-//   const x = e.clientX
-//   const y = e.clientY
-//
-//   const buttonTop = e.target.offsetTop
-//   const buttonLeft = e.target.offsetLeft
-//
-//   const xInside = x - buttonLeft
-//   const yInside = y - buttonTop
-//
-//   const circle = document.createElement('span')
-//   circle.classList.add('circle')
-//   circle.style.top = yInside + 'px'
-//   circle.style.left = xInside + 'px'
-//
-//   console.log(this.appendChild(circle))
-//
-//   this.appendChild(circle)
-//
-//   setTimeout(() => circle.remove(), 500)
-// })
-
+//Дополнительный функционал: сложные эффекты для кнопок при наведении
 
 const buttonsWithRipple = document.querySelectorAll(".ripple");
 
@@ -236,6 +209,9 @@ function changeBtnBehavior (e) {
 
   setTimeout(() => circle.remove(), 500)
 }
+
+console.log(`Score: 75 / 75;\n 1. Смена изображений в секции portfolio +25/25;\n 2. Перевод страницы на два языка +25/25;\n 3. Переключение светлой и тёмной темы +25/25;\n 4. Дополнительный функционал: выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы +5/5;\n 5. Дополнительный функционал: сложные эффекты для кнопок при наведении и/или клике (Hero, Portfolio, Price, Contact sections) +5/5;`)
+
 
 
 
