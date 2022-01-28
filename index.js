@@ -1,3 +1,8 @@
+import { i18Obj } from './translate.js';
+
+let lang = 'en';
+let theme;
+
 (() => {
   const refs = {
     openModalBtn: document.querySelector(".header-burger"),
@@ -19,4 +24,194 @@
 
 })();
 
-console.log(`Score: 75 / 75;\n 1. Вёрстка соответствует макету. Ширина экрана 768px +48/48;\n 2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки +15/15;\n 3. На ширине экрана 768рх и меньше реализовано адаптивное меню +22/22;`)
+//Смена изображений в секции Portfolio
+
+const portfolioBtns = document.querySelector('.portfolio-button-list');
+const portfolioImages = document.querySelectorAll('.portfolio-image');
+
+function changeImage(event) {
+  if (event.target.classList.contains('portfolio-button')) {
+    let season = event.target.dataset.season;
+    portfolioImages.forEach((img, index,) => img.src = `assets/img/${season}/${index + 1}.jpg`)
+
+  }
+}
+
+portfolioBtns.addEventListener('click', changeImage);
+
+//Кеширование изображений
+
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+
+function preloadImages() {
+  seasons.forEach((element) => {
+    for (let i = 1; i <= 6; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${element}/${i}.jpg`;
+    }
+  })
+}
+
+preloadImages();
+
+//Подсветка активной кнопки
+
+const allButtons = document.querySelectorAll('.button');
+
+function changeClassActive(event){
+  let current = event.target;
+  allButtons.forEach(el => {
+    if(el.classList.contains("activeBtn")){
+      el.classList.remove("activeBtn")
+    }
+  })
+  current.classList.add("activeBtn")
+}
+
+allButtons.forEach(el => {
+  el.addEventListener('click', changeClassActive)
+})
+
+//Translate page
+
+const languageButtons = document.querySelectorAll('[data-language]');
+
+function getTranslate(event){
+    let language = event.target.dataset.language;
+    lang = language;
+    localStorage.setItem('lang', lang);
+    const allElements = document.querySelectorAll('[data-i18]');
+    allElements.forEach(element => {
+      element.textContent = i18Obj[language][element.dataset.i18];
+    })
+}
+
+languageButtons.forEach(el => {
+  el.addEventListener('click',getTranslate)
+})
+
+//Change theme of the page
+
+const pageElements = [ "hero", "background-container","button-language","btn-language", "contacts", "hero-button", "section-title", "portfolio-title","portfolio-button", "portfolioBtn","portfolioBtn1","portfolioBtn2", "video-title", "price-title","price-button","priceBtn","priceBtn1","contact-title","contact-input","contact-tel","contact-text", "contactBtn"]
+
+const refs = {
+  lightBtn: document.querySelector('[data-color="light"]'),
+  darkBtn: document.querySelector('[data-color="dark"]'),
+};
+
+refs.lightBtn.addEventListener('click', function () {
+    theme = 'light';
+    localStorage.setItem('theme', theme);
+    refs.lightBtn.classList.add('invisible');
+    document.body.classList.add('theme-light')
+
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.add('light-background');
+    })
+
+    refs.darkBtn.classList.remove('invisible');
+})
+
+refs.darkBtn.addEventListener('click', function () {
+    theme = 'dark';
+    localStorage.setItem('theme', theme);
+    refs.darkBtn.classList.add('invisible');
+
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.remove('light-background');
+    })
+
+    document.body.classList.remove('theme-light')
+    refs.lightBtn.classList.remove('invisible');
+})
+
+function changeTheme(theme) {
+  if (theme === 'light') {
+    refs.lightBtn.classList.add('invisible');
+    document.body.classList.add('theme-light')
+
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.add('light-background');
+    })
+
+    refs.darkBtn.classList.remove('invisible');
+  }else{
+    refs.darkBtn.classList.add('invisible');
+
+    pageElements.forEach((element) => {
+      const a = document.querySelector(`.${element}`);
+      a.classList.remove('light-background');
+    })
+
+    document.body.classList.remove('theme-light')
+    refs.lightBtn.classList.remove('invisible');
+  }
+}
+
+function changeLanguage(){
+  if(localStorage.getItem('lang') === "ru"){
+    const allElements = document.querySelectorAll('[data-i18]');
+    allElements.forEach(element => {
+      element.textContent = i18Obj.ru[element.dataset.i18];
+    })} else{
+    const allElements = document.querySelectorAll('[data-i18]');
+    allElements.forEach(element => {
+      element.textContent = i18Obj.en[element.dataset.i18];
+    })
+  }
+}
+
+//Дополнительный функционал: данные хранятся в local storage
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    changeLanguage(lang);
+  }
+  if(localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    changeTheme(theme);
+  }
+}
+window.addEventListener('load', getLocalStorage)
+
+//Дополнительный функционал: сложные эффекты для кнопок при наведении
+
+const buttonsWithRipple = document.querySelectorAll(".ripple");
+
+console.log(buttonsWithRipple)
+
+buttonsWithRipple.forEach(item => {
+  item.addEventListener('click', changeBtnBehavior)
+})
+
+function changeBtnBehavior (e) {
+
+  const x = e.pageX;
+  const y = e.pageY;
+
+  const buttonTop = e.target.offsetTop
+  const buttonLeft = e.target.offsetLeft
+
+  const xInside = x - buttonLeft
+  const yInside = y - buttonTop
+
+  const circle = document.createElement('span')
+
+  circle.classList.add('circle')
+  circle.style.top = yInside + 'px'
+  circle.style.left = xInside + 'px'
+
+  this.appendChild(circle)
+
+  setTimeout(() => circle.remove(), 500)
+}
+
+console.log(`Score: 75 / 75;\n 1. Смена изображений в секции portfolio +25/25;\n 2. Перевод страницы на два языка +25/25;\n 3. Переключение светлой и тёмной темы +25/25;\n 4. Дополнительный функционал: выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы +5/5;\n 5. Дополнительный функционал: сложные эффекты для кнопок при наведении и/или клике (Hero, Portfolio, Price, Contact sections) +5/5;`)
+
+
+
+
