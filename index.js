@@ -1,3 +1,4 @@
+
 /*Get our elements*/
 const player = document.querySelector('.player-container');
 const controls = document.querySelector('.player__controls');
@@ -92,6 +93,3 @@ console.log(`Score: 60 / 60;
 5. Есть регулятор громкости звука при перемещении ползунка которого можно сделать звук громче или тише +10/10; 
 6. Кнопка Play/Pause в центре видео +10/10; 
 7. Дополнительный не предусмотренный в задании функционал - возможность открыть видео в полноэкранном режиме +10/10;`)
-
-
-
