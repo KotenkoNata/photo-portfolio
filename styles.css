@@ -1,0 +1,269 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 36px;
+    color: #FFFFFF;
+    background-color: #22254b;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.animation{
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header{
+    padding: 20px;
+    background-color: #373b69;
+}
+
+.search-form{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-form input{
+    font-size: 18px;
+    height: 30px;
+    border:2px solid #22254b;
+    border-radius: 20px;
+    background-color: #373b69;
+    padding-left: 15px;
+    color: #FFFFFF;
+}
+
+.search-form input::placeholder{
+    font-size: 18px;
+    color: #898fd7;
+}
+
+.search-form input:focus {
+    outline: none !important;
+    background-color: #22254b;
+    border:2px solid #373b69;
+}
+
+.form-container{
+    position: relative;
+}
+
+.delete-search{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    background-color: transparent;
+    border: none;
+
+    transform: translate(0, -50%);
+}
+
+.isHidden{
+    display: none;
+}
+
+.delete{
+    fill: #FFFFFF;
+}
+
+.error-message{
+    margin: 0 auto;
+}
+
+.movie-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    padding: 0;
+    margin: 50px 0 50px 0;
+}
+
+.movie-list .movie-item{
+    display: flex;
+    flex-direction: row;
+    flex-basis: calc((100% - 60px)/4);
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.movie-link{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.flexible{
+    flex-grow: 1;
+}
+
+.movie-img{
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.movie-list-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background-color: #373b69;
+}
+
+
+
+.movie-popularity{
+    padding: 0.25rem 0.5rem;
+    background-color: #22254b;
+    border-radius: 5px;
+    color: #898fd7;
+}
+
+.more{
+    color: green;
+}
+
+.movie-list .movie-item:nth-child(4n) {
+    margin-right: 0;
+}
+
+.movie-list .movie-item:nth-last-child(-n + 4) {
+    margin-bottom: 0;
+}
+
+.movie-list .movie-item:hover, .movie-list .movie-item:focus{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.movie-relative{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-relative:hover .hover-text,
+.movie-relative:focus .hover-text{
+    transform: translateY(0);
+}
+
+.hover-text{
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(55, 59, 105, 0.9);
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition-property: transform;
+}
+
+.hover-text p{
+    padding: 0 25px;
+    word-break: break-word;
+    text-align: left;
+    margin: 0;
+}
+
+.movie-title{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    color: white;
+    margin: 0;
+}
+
+.lead {
+    text-align: left;
+
+    font-size: 16px;
+    line-height: 1.87;
+    margin-top: 9px;
+    margin-bottom: 0;
+}
+.excerpt {
+    font-size: 18px;
+    line-height: 1.56;
+}
+
+.title-overview{
+    padding: 10px 25px 0 25px;
+    text-align: left;
+}
+
+footer{
+    background-color: #373b69;
+}
+
+.footer{
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.footer-flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: baseline;
+
+    font-size: 20px;
+    line-height: 50px;
+
+    padding: 20px 0;
+}
+
+.footer-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    transition: color, fill .3s;
+}
+.footer-span{
+    margin-right: 20px;
+}
+
+.footer-link:hover{
+    color: #898fd7;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie</title>
+    <link rel="shortcut icon" type="image/jpg" href="./assets/img/movieIcon.ico"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <div class="container">
+      <div class="form-container">
+      <form class="search-form" id="search-form">
+          <label for="query"></label>
+          <input class="search-field" id="query" name="query" autocomplete="off" placeholder="Search">
+      </form>
+      <button class="delete-search isHidden">
+          <svg class="delete" width="10px" height="10px">
+              <use href="./assets/svg/symbol-defs.svg#icon-close"></use>
+          </svg>
+      </button>
+      </div>
+  </div>
+</header>
+<main>
+    <div class="container">
+        <section>
+            <ul class="movie-list">
+
+            </ul>
+        </section>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer-flex-container">
+
+            <a class="footer-link" href="https://github.com/KotenkoNata" target="_blank"><span class="footer-span">&copy;</span> <span class="footer-span">2022</span> <span class=footer-span>Github</span></a>
+
+            <a class="footer-link" href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a>
+
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
