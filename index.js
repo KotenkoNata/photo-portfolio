@@ -8,12 +8,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let timerId;
   let score = 0;
   const colors=[
-    'cyan',
-    'red',
-    'purple',
-    'green',
-    'blue'
+    '#800080',
+    '#FF0000',
+    '#0000FF',
+    '#008000',
+    '#FFA500'
   ]
+
+  function getCalculateColor(color, amount) {
+    return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
+  }
+
 
 //The Tetrominoes
   const lTetrominoes = [
@@ -65,7 +70,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function draw() {
     current.forEach(index=>{
       squares[currentPosition + index].classList.add('tetromino');
-      squares[currentPosition + index].style.backgroundColor = colors[random];
+
+      let randomColor = colors[random];
+      let darken = getCalculateColor(randomColor, -100);
+      let lighter = getCalculateColor(randomColor, 150);
+
+      squares[currentPosition + index].style.backgroundColor = randomColor;
+      squares[currentPosition + index].style.border = `0.5px solid ${darken}`;
+      squares[currentPosition + index].style.boxShadow = `inset 0 0 2px 2px ${lighter}`;
     })
   }
 
@@ -75,6 +87,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     current.forEach(index=>{
       squares[currentPosition + index].classList.remove('tetromino');
       squares[currentPosition + index].style.backgroundColor = '';
+      squares[currentPosition + index].style.borderColor = '';
+      squares[currentPosition + index].style.boxShadow = '';
     })
   }
 
@@ -177,12 +191,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function displayShape() {
     displaySquares.forEach(square=>{
       square.classList.remove('tetromino');
+      square.style.boxShadow = '';
       square.style.backgroundColor = '';
+      square.style.borderColor = '';
+
     })
 
     upNextTetrominoes[nextRandom].forEach(index => {
       displaySquares[displayIndex + index].classList.add('tetromino');
-      displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom];
+
+      let randomColor = colors[nextRandom];
+      let darken = getCalculateColor(randomColor, -100);
+      let lighter = getCalculateColor(randomColor, 150);
+
+      displaySquares[displayIndex + index].style.borderColor = `${darken}`;
+      displaySquares[displayIndex + index].style.backgroundColor = randomColor;
+      displaySquares[displayIndex + index].style.boxShadow = `inset 0 0 2px 2px ${lighter}`;
+
     })
   }
 
@@ -213,6 +238,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
           squares[index].classList.remove('taken');
           squares[index].classList.remove('tetromino');
           squares[index].style.backgroundColor = '';
+          squares[index].style.borderColor = '';
+          squares[index].style.boxShadow = '';
+
         })
 
         const squaresRemoved = squares.splice(i, width);
