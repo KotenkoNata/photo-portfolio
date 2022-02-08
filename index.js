@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', (key, value)=>{
-
   const grid = document.querySelector('.grid');
   let squares = Array.from(document.querySelectorAll('.grid div'));
 
@@ -10,9 +8,13 @@ document.addEventListener('DOMContentLoaded', (key, value)=>{
   const startBtn = document.querySelector('#start-button');
   const gameOverInscription = document.querySelector('.game-over');
 
+  let gameOverOrNo = 'false';
+
   const width = 10;
   let nextRandom = 0;
   let timerId;
+
+
   let score = 0;
   let lines = 0;
   let level = 1;
@@ -102,9 +104,6 @@ document.addEventListener('DOMContentLoaded', (key, value)=>{
       squares[currentPosition + index].style.boxShadow = '';
     })
   }
-
-  //make the tetromino move down every second
-  // timerId = setInterval(moveDown, 1000);
 
 
 //assign functions to keyCodes
@@ -225,16 +224,51 @@ document.addEventListener('DOMContentLoaded', (key, value)=>{
   //add functionality to the button
 
   startBtn.addEventListener('click', ()=>{
-    if(timerId){
-      clearInterval(timerId);
-      timerId = null;
-    }else{
-      draw();
-      timerId = setInterval(moveDown, 1000);
-      nextRandom = Math.floor(Math.random()*theTetrominoes.length);
-      displayShape();
+    if(startBtn.innerHTML==='Continue game'){
+      console.log('1')
+      startGame()
+    }else if(startBtn.innerHTML==='Pause game'){
+      console.log('2')
+      pauseGame();
+    }else if(startBtn.innerHTML==='Start game'){
+      console.log('3')
+      startNewGame();
     }
   })
+
+  function startNewGame() {
+    const elements = document.querySelectorAll('.grid .field');
+    elements.forEach(element=>{
+      element.classList.remove('tetromino');
+      element.classList.remove('taken');
+      element.style.backgroundColor = '';
+      element.style.borderColor = '';
+      element.style.boxShadow = '';
+    })
+    gameOverInscription.innerHTML = '';
+    gameOverInscription.classList.add('invisible');
+
+
+    draw();
+    timerId = setInterval(moveDown, 1000);
+    nextRandom = Math.floor(Math.random()*theTetrominoes.length);
+    displayShape();
+    startBtn.innerHTML = "Pause game";
+  }
+
+  function startGame() {
+    draw();
+    timerId = setInterval(moveDown, 1000);
+    nextRandom = Math.floor(Math.random()*theTetrominoes.length);
+    displayShape();
+    startBtn.innerHTML = "Pause game";
+  }
+
+  function pauseGame() {
+    clearInterval(timerId);
+    timerId = null;
+    startBtn.innerHTML = "Continue game";
+  }
 
   //add score
 
@@ -275,29 +309,31 @@ document.addEventListener('DOMContentLoaded', (key, value)=>{
       setLocalStorage();
       gameOverInscription.innerHTML = 'Game over!';
       game +=1;
-      console.log(game)
+      startBtn.innerHTML = "Start game";
+      gameOverOrNo = 'true';
     }
   }
+
+
   
   //save data to Local storage
   function setLocalStorage(key, value) {
+    let obj = {
+      game: `${game}`,
+      score: `${score}`,
+      lines: `${lines}`,
+      level: `${level}`
+    };
 
       if(localStorage.length === 10){
         localStorage.removeItem(`${obj.game - 10}`)
       }else{
-        let obj = {
-          game: `${game}`,
-          score: `${score}`,
-          lines: `${lines}`,
-          level: `${level}`
-        };
         console.log(obj)
         let serialObj = JSON.stringify(obj);
         localStorage.setItem(`${game}`, serialObj);
       }
   }
 
-  console.log()
 
 //get data from Local storage
   function getLocalStorage() {
@@ -305,5 +341,3 @@ document.addEventListener('DOMContentLoaded', (key, value)=>{
       const score = localStorage.getItem('Score');
     }
   }
-
-})
