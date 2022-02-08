@@ -15,7 +15,7 @@ const fullscreen = player.querySelector('.fullscreen__button');
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
-  center.classList.remove('isHidden');
+  method === 'play' ? center.classList.add('isHidden') : center.classList.remove('isHidden');
 }
 
 function updateButton() {
@@ -23,8 +23,16 @@ function updateButton() {
 }
 
 function updateVolume() {
-  video.muted = !video.muted;
+  if(video.muted){
+    video.muted = false;
+    video[this.name] = this.value;
+  }else{
+    video.muted = true;
+    ranges.value = 0;
+    video.volume = 0;
+  }
   volume.children[0].children[0].href.baseVal = video.muted ? `./assets/svg/symbol-defs.svg#icon-mute` : `./assets/svg/symbol-defs.svg#icon-volume`;
+
 }
 
 function hideCenterBtn(){
@@ -32,8 +40,9 @@ function hideCenterBtn(){
   controls.classList.remove('isHidden');
 }
 
-function handleRangeUpdate() {
+function handleVolumeRange() {
   video[this.name] = this.value;
+  video.volume === 0 ? volume.children[0].children[0].href.baseVal = `./assets/svg/symbol-defs.svg#icon-mute`: volume.children[0].children[0].href.baseVal = `./assets/svg/symbol-defs.svg#icon-volume`;
 }
 
 function handleProgress() {
@@ -69,8 +78,8 @@ toggle.addEventListener('click', togglePlay);
 center.addEventListener('click', togglePlay);
 center.addEventListener('click', hideCenterBtn);
 
-ranges.addEventListener('change',handleRangeUpdate);
-ranges.addEventListener('mousemove',handleRangeUpdate);
+ranges.addEventListener('change',handleVolumeRange);
+ranges.addEventListener('mousemove',handleVolumeRange);
 
 volume.addEventListener('click', updateVolume);
 
