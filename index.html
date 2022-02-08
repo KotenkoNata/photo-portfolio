@@ -16,11 +16,24 @@
 </header>
 <main>
     <div class="container">
-        <h3>Score: <span id="score">0</span></h3>
-        <button id="start-button">Start/Pause</button>
-        <div class="container">
+
+
             <div class="game-container">
+                <div class="controls-container">
+                    <h4 class="controls">Controls:</h4>
+                    <p>&uarr;</p>
+                    <p>&larr;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&rarr;</p>
+                    <p>&darr;</p>
+
+                    <p class="moving">Left and Right:</p>
+                    <p class="details">move side to side</p>
+                    <p class="moving">Up:</p>
+                    <p class="details">rotate</p>
+                    <p class="moving">Down:</p>
+                    <p class="details">fall faster</p>
+                </div>
                 <div class = "grid">
+                    <span class="game-over invisible"></span>
                     <div class="field"></div>
                     <div class="field"></div>
                     <div class="field"></div>
@@ -235,27 +248,48 @@
 
                 </div>
 
-                <h3>Next shape:</h3>
-                <div class="mini-grid">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <div class="next-shape-container">
+                    <h3>Next shape:</h3>
+                    <div class="mini-grid">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <h3>Score: <span id="score">0</span></h3>
+                    <h3>Lines:<span id="lines">0</span></h3>
+                    <h3>Level: <span id="level">0</span></h3>
+
+                    <table style="width:100%">
+                        <tr>
+                            <th>Game</th>
+                            <th>Score</th>
+                            <th>Level</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>40</td>
+                            <td>1</td>
+                        </tr>
+                    </table>
+
+                    <button id="start-button" class="animation">Start/Pause</button>
                 </div>
             </div>
-        </div>
+
     </div>
 </main>
 <footer>

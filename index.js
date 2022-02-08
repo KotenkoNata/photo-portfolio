@@ -1,12 +1,23 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', (key, value)=>{
+
   const grid = document.querySelector('.grid');
   let squares = Array.from(document.querySelectorAll('.grid div'));
+
   const scoreDisplay = document.querySelector('#score');
+  const linesDisplay = document.querySelector('#lines');
+  const levelDisplay = document.querySelector('#level');
+
   const startBtn = document.querySelector('#start-button');
+  const gameOverInscription = document.querySelector('.game-over');
+
   const width = 10;
   let nextRandom = 0;
   let timerId;
   let score = 0;
+  let lines = 0;
+  let level = 1;
+  let game = 1;
+
   const colors=[
     '#800080',
     '#FF0000',
@@ -122,7 +133,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   //freeze function
   function freeze() {
     if(current.some(index=> squares[currentPosition + index + width].classList.contains('taken'))){
-      current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+      current.forEach(index => squares[currentPosition + index].classList.add('taken'));
 
       //start a new tetromino falling
       random = nextRandom;
@@ -233,6 +244,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
       if(row.every(index=>squares[index].classList.contains('taken'))){
         score +=10;
+        lines +=1;
+        if(score%100 === 0){
+          level +=1;
+        }
+        levelDisplay.innerHTML = level;
+        linesDisplay.innerHTML = lines;
         scoreDisplay.innerHTML = score;
         row.forEach(index=>{
           squares[index].classList.remove('taken');
@@ -253,8 +270,39 @@ document.addEventListener('DOMContentLoaded', ()=>{
   //game over
   function gameOver() {
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
-      scoreDisplay.innerHTML = 'end';
       clearInterval(timerId);
+      gameOverInscription.classList.remove('invisible');
+      setLocalStorage();
+      gameOverInscription.innerHTML = 'Game over!';
+      game +=1;
+      console.log(game)
+    }
+  }
+  
+  //save data to Local storage
+  function setLocalStorage(key, value) {
+
+      if(localStorage.length === 10){
+        localStorage.removeItem(`${obj.game - 10}`)
+      }else{
+        let obj = {
+          game: `${game}`,
+          score: `${score}`,
+          lines: `${lines}`,
+          level: `${level}`
+        };
+        console.log(obj)
+        let serialObj = JSON.stringify(obj);
+        localStorage.setItem(`${game}`, serialObj);
+      }
+  }
+
+  console.log()
+
+//get data from Local storage
+  function getLocalStorage() {
+    if(localStorage.getItem('Score')) {
+      const score = localStorage.getItem('Score');
     }
   }
 
