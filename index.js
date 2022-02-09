@@ -8,6 +8,8 @@
   const startBtn = document.querySelector('#start-button');
   const gameOverInscription = document.querySelector('.game-over');
 
+  const tableBody = document.querySelector('.table-body')
+
   let gameOverOrNo = 'false';
 
   const width = 10;
@@ -31,7 +33,6 @@
   function getCalculateColor(color, amount) {
     return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
   }
-
 
 //The Tetrominoes
   const lTetrominoes = [
@@ -225,14 +226,17 @@
 
   startBtn.addEventListener('click', ()=>{
     if(startBtn.innerHTML==='Continue game'){
-      console.log('1')
-      startGame()
+      startGame();
+      clearTable();
+      console.log("clear")
+      getLocalStorage();
     }else if(startBtn.innerHTML==='Pause game'){
-      console.log('2')
       pauseGame();
     }else if(startBtn.innerHTML==='Start game'){
-      console.log('3')
       startNewGame();
+      console.log("clear1")
+      clearTable();
+      getLocalStorage();
     }
   })
 
@@ -285,6 +289,7 @@
         levelDisplay.innerHTML = level;
         linesDisplay.innerHTML = lines;
         scoreDisplay.innerHTML = score;
+
         row.forEach(index=>{
           squares[index].classList.remove('taken');
           squares[index].classList.remove('tetromino');
@@ -305,42 +310,69 @@
   function gameOver() {
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
       clearInterval(timerId);
+
       gameOverInscription.classList.remove('invisible');
+
+      gameOverInscription.innerHTML = 'Game over!';
+
+
+
       setLocalStorage();
+
       score = 0;
       lines = 0;
-      level = 0;
-      gameOverInscription.innerHTML = 'Game over!';
+      level = 1;
+
+      levelDisplay.innerHTML = level;
+      linesDisplay.innerHTML = lines;
+      scoreDisplay.innerHTML = score;
+
       game +=1;
       startBtn.innerHTML = "Start game";
-      gameOverOrNo = 'true';
+      clearTable();
+      getLocalStorage();
     }
   }
 
 
   
   //save data to Local storage
-  function setLocalStorage(key, value) {
-    let obj = {
-      game: `${game}`,
-      score: `${score}`,
-      lines: `${lines}`,
-      level: `${level}`
-    };
+  function setLocalStorage() {
 
-      if(localStorage.length === 10){
-        localStorage.removeItem(`${obj.game - 10}`)
-      }else{
-        console.log(obj)
-        let serialObj = JSON.stringify(obj);
-        localStorage.setItem(`${game}`, serialObj);
-      }
-  }
+    let gameScore = JSON.parse(localStorage.getItem('gameScore')) || [];
 
+    const newGame = {score: `${score}`,lines: `${lines}`,level: `${level}`};
 
-//get data from Local storage
-  function getLocalStorage() {
-    if(localStorage.getItem('Score')) {
-      const score = localStorage.getItem('Score');
+    gameScore.push(newGame);
+
+    gameScore.sort((a,b)=>b.lines - a.lines);
+
+    if(gameScore.length > 10){
+      gameScore.pop()
     }
+
+    localStorage.setItem('gameScore', JSON.stringify(gameScore));
+
   }
+
+  function clearTable() {
+    tableBody.innerHTML = '';
+  }
+
+
+function getLocalStorage() {
+  if(localStorage.length > 0) {
+    const data = JSON.parse(localStorage.getItem('gameScore'));
+
+    data.map(item=>{
+      console.log(item)
+
+      let htmlElement = `<tr class="game-details">
+                           <td>${item.score}</td>
+                             <td>${item.lines}</td>
+                             <td>${item.level}</td>
+                         </tr>`;
+           tableBody.insertAdjacentHTML('beforeend', htmlElement);
+    })
+  }
+}
