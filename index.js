@@ -10,8 +10,6 @@
 
   const tableBody = document.querySelector('.table-body')
 
-  let gameOverOrNo = 'false';
-
   const width = 10;
   let nextRandom = 0;
   let timerId;
@@ -20,7 +18,8 @@
   let score = 0;
   let lines = 0;
   let level = 1;
-  let game = 1;
+
+  let speed = 1000;
 
   const colors=[
     '#800080',
@@ -228,13 +227,11 @@
     if(startBtn.innerHTML==='Continue game'){
       startGame();
       clearTable();
-      console.log("clear")
       getLocalStorage();
     }else if(startBtn.innerHTML==='Pause game'){
       pauseGame();
     }else if(startBtn.innerHTML==='Start game'){
       startNewGame();
-      console.log("clear1")
       clearTable();
       getLocalStorage();
     }
@@ -254,7 +251,7 @@
 
 
     draw();
-    timerId = setInterval(moveDown, 1000);
+    timerId = setInterval(moveDown, speed);
     nextRandom = Math.floor(Math.random()*theTetrominoes.length);
     displayShape();
     startBtn.innerHTML = "Pause game";
@@ -262,7 +259,7 @@
 
   function startGame() {
     draw();
-    timerId = setInterval(moveDown, 1000);
+    timerId = setInterval(moveDown, speed);
     nextRandom = Math.floor(Math.random()*theTetrominoes.length);
     displayShape();
     startBtn.innerHTML = "Pause game";
@@ -283,9 +280,11 @@
       if(row.every(index=>squares[index].classList.contains('taken'))){
         score +=10;
         lines +=1;
-        if(score%100 === 0){
+        if( score%100 === 0 ){
           level +=1;
+          speed = speed - 100;
         }
+
         levelDisplay.innerHTML = level;
         linesDisplay.innerHTML = lines;
         scoreDisplay.innerHTML = score;
@@ -313,9 +312,14 @@
 
       gameOverInscription.classList.remove('invisible');
 
-      gameOverInscription.innerHTML = 'Game over!';
+      gameOverInscription.innerHTML = `Game over!`;
 
+      let htmlElement = `<p class="game-results">Your result:</p>
+<p class="game-results">Score: ${score}</p>
+<p class="game-results">Lines: ${lines}</p>
+<p class="game-results">Level: ${level}</p>`;
 
+      gameOverInscription.insertAdjacentHTML('beforeend', htmlElement);
 
       setLocalStorage();
 
@@ -327,8 +331,8 @@
       linesDisplay.innerHTML = lines;
       scoreDisplay.innerHTML = score;
 
-      game +=1;
       startBtn.innerHTML = "Start game";
+
       clearTable();
       getLocalStorage();
     }
@@ -359,14 +363,11 @@
     tableBody.innerHTML = '';
   }
 
-
 function getLocalStorage() {
   if(localStorage.length > 0) {
     const data = JSON.parse(localStorage.getItem('gameScore'));
 
     data.map(item=>{
-      console.log(item)
-
       let htmlElement = `<tr class="game-details">
                            <td>${item.score}</td>
                              <td>${item.lines}</td>
@@ -376,3 +377,4 @@ function getLocalStorage() {
     })
   }
 }
+

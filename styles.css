@@ -100,7 +100,15 @@ img {
 
     padding: 20px;
 
+    text-align: center;
+
 }
+
+.game-results{
+    font-size: 16px;
+    margin: 0;
+}
+
 .tetromino{
     background-size: 38px 38px;
 }
