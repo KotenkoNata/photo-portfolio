@@ -307,6 +307,9 @@
       clearInterval(timerId);
       gameOverInscription.classList.remove('invisible');
       setLocalStorage();
+      score = 0;
+      lines = 0;
+      level = 0;
       gameOverInscription.innerHTML = 'Game over!';
       game +=1;
       startBtn.innerHTML = "Start game";
