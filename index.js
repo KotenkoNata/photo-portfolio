@@ -29,13 +29,30 @@
     '#FFA500'
   ];
 
- //sound
-  let clearSound = new Audio('./assets/sound/clear.wav');
-  clearSound.volume = 0.1;
 
+  // converted given HEX color to more bright or more dark HEX color
   function getCalculateColor(color, amount) {
     return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
   }
+
+ //sounds
+  let clearSound = new Audio('./assets/sound/clear.wav');
+  clearSound.volume = 0.1;
+
+  let fallSound = new Audio('./assets/sound/bump.wav');
+  clearSound.volume = 0.01;
+
+  let selectionSoundL = new Audio('./assets/sound/cursL.wav');
+  clearSound.volume = 0.1;
+
+  let rotateSound = new Audio('./assets/sound/magicstep.wav');
+  clearSound.volume = 0.1;
+
+  let selectionSoundR = new Audio('./assets/sound/cursverti.wav');
+  clearSound.volume = 0.1;
+
+  let gameOverSound = new Audio('./assets/sound/gameover.wav');
+  clearSound.volume = 0.1;
 
 //The Tetrominoes
   const lTetrominoes = [
@@ -114,12 +131,16 @@
   function control(e) {
     if(e.keyCode === 37){
       moveLeft();
+      selectionSoundL.play();
     }else if(e.keyCode === 38){
-      rotate()
+      rotate();
+      rotateSound.play();
     }else if(e.keyCode === 39){
-      moveRight()
+      moveRight();
+      selectionSoundR.play();
     }else if(e.keyCode === 40){
-      moveDown()
+      moveDown();
+      selectionSoundL.play();
     }
   }
 
@@ -137,7 +158,7 @@
   function freeze() {
     if(current.some(index=> squares[currentPosition + index + width].classList.contains('taken'))){
       current.forEach(index => squares[currentPosition + index].classList.add('taken'));
-
+      fallSound.play();
       //start a new tetromino falling
       random = nextRandom;
       nextRandom = Math.floor(Math.random()*theTetrominoes.length);
@@ -315,8 +336,9 @@
   //game over
   function gameOver() {
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
-      clearInterval(timerId);
 
+      clearInterval(timerId);
+      gameOverSound.play();
       gameOverInscription.classList.remove('invisible');
 
       gameOverInscription.innerHTML = `Game over!`;
