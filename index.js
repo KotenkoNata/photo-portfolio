@@ -39,8 +39,8 @@
   let clearSound = new Audio('./assets/sound/clear.wav');
   clearSound.volume = 0.1;
 
-  let fallSound = new Audio('./assets/sound/bump.wav');
-  clearSound.volume = 0.01;
+  let fallSound = new Audio('./assets/sound/land.wav');
+  clearSound.volume = 0.1;
 
   let selectionSoundL = new Audio('./assets/sound/cursL.wav');
   clearSound.volume = 0.1;
@@ -52,6 +52,9 @@
   clearSound.volume = 0.1;
 
   let gameOverSound = new Audio('./assets/sound/gameover.wav');
+  clearSound.volume = 0.1;
+
+  let succeedGame = new Audio('./assets/sound/success.wav');
   clearSound.volume = 0.1;
 
 //The Tetrominoes
@@ -273,6 +276,8 @@
     })
     gameOverInscription.innerHTML = '';
     gameOverInscription.classList.add('invisible');
+    gameOverInscription.classList.remove('success');
+    gameOverInscription.classList.remove('over');
 
 
     draw();
@@ -321,16 +326,26 @@
           squares[index].style.backgroundColor = '';
           squares[index].style.borderColor = '';
           squares[index].style.boxShadow = '';
+          squares[index].classList.add('animation-line');
 
         })
-
         const squaresRemoved = squares.splice(i, width);
         squares = squaresRemoved.concat(squares);
         squares.forEach(cell=>grid.appendChild(cell));
-
       }
 
     }
+  }
+
+
+  //checking High Score
+
+  function checkingHighScore(score) {
+
+    const highScore = JSON.parse(localStorage.getItem('gameScore')) || [];
+    const lowestScore = highScore[10-1]?.score ?? 0;
+
+    return score > lowestScore;
   }
 
   //game over
@@ -338,15 +353,30 @@
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))){
 
       clearInterval(timerId);
-      gameOverSound.play();
-      gameOverInscription.classList.remove('invisible');
 
+      const highScore = checkingHighScore(score);
+
+      let text = "";
+
+      console.log(typeof highScore);
+
+      if(highScore === false){
+        gameOverSound.play();
+        gameOverInscription.classList.add('over');
+        text = "Your result:";
+      }else {
+        succeedGame.play();
+        gameOverInscription.classList.add('success');
+        text = "You got a highscore!";
+      }
+
+      gameOverInscription.classList.remove('invisible');
       gameOverInscription.innerHTML = `Game over!`;
 
-      let htmlElement = `<p class="game-results">Your result:</p>
-<p class="game-results">Score: ${score}</p>
-<p class="game-results">Lines: ${lines}</p>
-<p class="game-results">Level: ${level}</p>`;
+      let htmlElement = `<p class="game-results">${text}</p>
+        <p class="game-results">Score: ${score}</p>
+        <p class="game-results">Lines: ${lines}</p>
+        <p class="game-results">Level: ${level}</p>`;
 
       gameOverInscription.insertAdjacentHTML('beforeend', htmlElement);
 
@@ -366,7 +396,6 @@
       getLocalStorage();
     }
   }
-
 
   
   //save data to Local storage
