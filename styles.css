@@ -93,7 +93,7 @@ img {
     color: rgb(252, 188, 188);
     font-size: 28px;
 
-    border: 0.5px solid rgb(155, 0, 0);
+    border: 1px solid rgb(155, 0, 0);
     background-color: rgb(255, 0, 0);
     box-shadow: rgb(255 150 150) 0px 0px 5px 5px inset;
     border-radius: 10px;

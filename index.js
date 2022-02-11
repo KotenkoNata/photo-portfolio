@@ -27,7 +27,11 @@
     '#0000FF',
     '#008000',
     '#FFA500'
-  ]
+  ];
+
+ //sound
+  let clearSound = new Audio('./assets/sound/clear.wav');
+  clearSound.volume = 0.1;
 
   function getCalculateColor(color, amount) {
     return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
@@ -89,7 +93,7 @@
       let lighter = getCalculateColor(randomColor, 150);
 
       squares[currentPosition + index].style.backgroundColor = randomColor;
-      squares[currentPosition + index].style.border = `0.5px solid ${darken}`;
+      squares[currentPosition + index].style.border = `1px solid ${darken}`;
       squares[currentPosition + index].style.boxShadow = `inset 0 0 2px 2px ${lighter}`;
     })
   }
@@ -278,6 +282,7 @@
       const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9];
 
       if(row.every(index=>squares[index].classList.contains('taken'))){
+        clearSound.play();
         score +=10;
         lines +=1;
         if( score%100 === 0 ){
@@ -301,7 +306,9 @@
         const squaresRemoved = squares.splice(i, width);
         squares = squaresRemoved.concat(squares);
         squares.forEach(cell=>grid.appendChild(cell));
+
       }
+
     }
   }
 
