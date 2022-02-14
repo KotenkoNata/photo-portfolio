@@ -8,7 +8,11 @@
   const startBtn = document.querySelector('#start-button');
   const gameOverInscription = document.querySelector('.game-over');
 
-  const tableBody = document.querySelector('.table-body')
+  const tableBody = document.querySelector('.table-body');
+
+  const muteButton = document.querySelector('.mute-button');
+
+  let muted = false;
 
   const width = 10;
   let nextRandom = 0;
@@ -40,22 +44,22 @@
   clearSound.volume = 0.1;
 
   let fallSound = new Audio('./assets/sound/land.wav');
-  clearSound.volume = 0.1;
+  fallSound.volume = 0.1;
 
   let selectionSoundL = new Audio('./assets/sound/cursL.wav');
-  clearSound.volume = 0.1;
+  selectionSoundL.volume = 0.1;
 
   let rotateSound = new Audio('./assets/sound/magicstep.wav');
-  clearSound.volume = 0.1;
+  rotateSound.volume = 0.1;
 
   let selectionSoundR = new Audio('./assets/sound/cursverti.wav');
-  clearSound.volume = 0.1;
+  selectionSoundR.volume = 0.1;
 
   let gameOverSound = new Audio('./assets/sound/gameover.wav');
-  clearSound.volume = 0.1;
+  gameOverSound.volume = 0.1;
 
   let succeedGame = new Audio('./assets/sound/success.wav');
-  clearSound.volume = 0.1;
+  succeedGame.volume = 0.1;
 
 //The Tetrominoes
   const lTetrominoes = [
@@ -356,9 +360,7 @@
 
       const highScore = checkingHighScore(score);
 
-      let text = "";
-
-      console.log(typeof highScore);
+      let text;
 
       if(highScore === false){
         gameOverSound.play();
@@ -436,3 +438,33 @@ function getLocalStorage() {
   }
 }
 
+muteButton.addEventListener('click', function () {
+
+  if(muteButton.muted === true){
+    clearSound.muted = true;
+    fallSound.muted = true;
+    selectionSoundL.muted = true;
+    rotateSound.muted = true;
+    selectionSoundR.muted = true;
+    gameOverSound.muted = true;
+    succeedGame.muted = true;
+
+    muteButton.children[0].children[0].href.baseVal =`./assets/img/symbol-defs.svg#icon-mute`;
+
+    muteButton.muted = false;
+
+  }else{
+    clearSound.muted = false;
+    fallSound.muted = false;
+    selectionSoundL.muted = false;
+    rotateSound.muted = false;
+    selectionSoundR.muted = false;
+    gameOverSound.muted = false;
+    succeedGame.muted = false;
+
+    muteButton.muted = true;
+
+    muteButton.children[0].children[0].href.baseVal = `./assets/img/symbol-defs.svg#icon-speaker`;
+  }
+
+})

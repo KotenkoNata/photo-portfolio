@@ -168,6 +168,21 @@ img {
 
     color: rgb(255 255 150);
     font-size: 16px;
+
+    margin-top: 40px;
+}
+
+.mute-button{
+    display: block;
+
+    background-color: transparent;
+    border: none;
+    margin: 200px 0 0 0;
+}
+
+.mute-button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 #start-button:hover{
