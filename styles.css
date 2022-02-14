@@ -116,14 +116,14 @@ img {
     color: rgb(210, 252, 210);
     border: 1px solid rgb(0, 28, 0);
     background-color: rgb(0, 128, 0);
-    box-shadow: rgb(150 255 150) 0px 0px 2px 2px inset;
+    box-shadow: rgb(150 255 150) 0 0 2px 2px inset;
 }
 
 .over{
     color: rgb(252, 188, 188);
     border: 1px solid rgb(155, 0, 0);
     background-color: rgb(255, 0, 0);
-    box-shadow: rgb(255 150 150) 0px 0px 5px 5px inset;
+    box-shadow: rgb(255 150 150) 0 0 5px 5px inset;
 }
 
 .game-results{
@@ -164,7 +164,7 @@ img {
 
     border-color: rgb(155, 65, 0);
     background-color: rgb(255, 165, 0);
-    box-shadow: rgb(255 255 150) 0px 0px 2px 2px inset;
+    box-shadow: rgb(255 255 150) 0 0 2px 2px inset;
 
     color: rgb(255 255 150);
     font-size: 16px;
@@ -188,7 +188,7 @@ img {
 #start-button:hover{
     border-color: rgb(0, 28, 0);
     background-color: rgb(0, 128, 0);
-    box-shadow: rgb(150 255 150) 0px 0px 2px 2px inset;
+    box-shadow: rgb(150 255 150) 0 0 2px 2px inset;
     color: rgb(150 255 150);
 }
 
